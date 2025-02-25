@@ -21,54 +21,20 @@ export default function Learning() {
         <Text maxW="646px" minH="66px" fontWeight="400" fontSize="1.5rem" lineHeight="1.75rem" textAlign="center" color={{base: "#000000", _dark: "#FEFEFE"}} mx="auto">Master essential technical and soft skills to prepare you for a career in Devops Engineering in 12 weeks.</Text>
       </Flex>
       {/* Text and image 1 */}
-      <Flex flexDirection={{base: "column", md: "row"}} gap="2rem" position="relative" pr="-2rem" justifyContent={{base: "initial", md: "space-between"}}>
-        <Flex maxW="628px" minH="708px" gap="1.5rem" flexDirection="column">
+      <Flex flexDirection={{base: "column", lg: "row"}} gap="2rem" position="relative" pr="-2rem" justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px">
+        <Flex maxW="628px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}}>
           {learningList.map((item: any) => {
             return (
               <CustomLearningCard key={item.id} {...item} />
             )
           })}
         </Flex>
-        <Flex justifyContent="flex-end" position="relative" bottom="100px">
+        <Flex justifyContent="flex-end" position="relative" bottom={{base: "160px", sm: "360px", lg: "100px"}}>
           <Image src="/images/training-image-1.png" w="inherit" alt="" />
         </Flex>
       </Flex>
       {/* Text and image 2 */}
-      <Flex flexDirection={{base: "column", md: "row"}} gap="2rem" justifyContent="space-between">
-        <Flex position="relative" maxW="628px" minW="150px" display={{base: "none", md: "flex"}}>
-          <Box position="absolute">
-            <Image src="/images/training-star.png" w="auto" alt="" />
-          </Box>
-          <Box position="absolute" top="320px" zIndex="11">
-            {/* top={{base: "1600px", md: "320px"}} */}
-            <Image src="/images/training-image-2.png" w="auto" alt="" />
-          </Box>
-          <Box position="absolute" top="300px" zIndex="10">
-            <Image src="/images/training-image-2-rect.png"  w="auto" alt="" />
-          </Box>
-        </Flex>
-        <Flex maxW="628px" minH="708px" gap="1.5rem" flexDirection="column">
-          {learningList.map((item: any) => {
-            return (
-              <CustomLearningCard key={item.id} {...item} />
-            )
-          })}
-        </Flex>
-        <Flex position="relative" maxW="628px" minW="150px" display={{base: "flex", md: "none"}}>
-          <Box position="absolute">
-            <Image src="/images/training-star.png" w="auto" alt="" />
-          </Box>
-          <Box position="absolute" top="120px" zIndex="11">
-            {/* top={{base: "1600px", md: "320px"}} */}
-            <Image src="/images/training-image-2.png" w="auto" alt="" />
-          </Box>
-          <Box position="absolute" top="100px" zIndex="10">
-            <Image src="/images/training-image-2-rect.png"  w="auto" alt="" />
-          </Box>
-        </Flex>
-      </Flex>
-      {/*  */}
-      <Flex maxW="1344px" minH="488px" gap="5rem" m={{base: "auto", md: "3.063rem"}} mt={{base: "32.063rem", md: "3.063rem"}} flexDirection="column">
+      <Flex maxW="1344px" minH="488px" gap="5rem" m={{base: "auto", md: "3.063rem"}} mt={{base: "-6.543rem", sm: "-17.543rem", md: "-16.543rem", lg: "8rem", xl: "2rem"}} flexDirection="column">
         {/* 3.063rem */}
         <Flex maxW="1260px" minH="132px" gap="1rem" flexDirection="column">
           <Text maxW="1260px" minH="60px" fontWeight="500" fontSize="3rem" lineHeight="3.75rem" textAlign="center" color={{base: "#000000", _dark: "#3E90F0"}}>Our Payment Options</Text>

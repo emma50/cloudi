@@ -6,7 +6,7 @@ export default function Testimonials() {
   return (
     <Box minH="625px" color={{base: "#FFFFFF", _dark: "#000000"}} mt="5rem">
       <Flex minH="465px" gap="72px" flexDirection="column">
-        <Flex flexDirection={{base: "column", md: "row"}} maxW="1280px" minH="100px" gap={{base: "4rem", md: "34.313rem"}} ml={{base: "auto", md: "80px"}}>
+        <Flex flexDirection={{base: "column", lg: "row"}} maxW="1280px" minH="100px" gap={{base: "4rem", lg: "34.313rem"}} ml={{base: "auto", md: "80px"}}>
           <Flex maxW="587px" minH="100px" gap="16px" flexDirection="column">
             <Text maxW="536px" minH="60px" fontWeight="700" fontSize="3.5rem" lineHeight="60px" color={{base: "#061C3D", _dark: "#005EDF"}} textAlign="start">Success Stories</Text>
             <Text maxW="587px" minH="24px" fontWeight="400" fontSize="20px" lineHeight="24.2px" color={{base: "#061C3D", _dark: "#FEFEFE"}} textAlign="start">What our students are saying about their learning experience.</Text>

@@ -7,7 +7,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 //@ts-ignore
 export const MenuToggle = ({ toggle, isOpen }) => {
   return (
-    <Box display={{ base: "block", md: "none" }} onClick={toggle}>
+    <Box display={{ base: "block", xl: "none" }} onClick={toggle}>
       {isOpen ? <IoClose color="#69C6FC" size="32px" /> : <IoIosMenu color="#69C6FC" size="32px" />}
     </Box>
   )
@@ -29,7 +29,7 @@ export const MenuItem = ({ children, to = "/", ...rest }) => {
 export const MenuLinks = ({ isOpen }) => {
   return (
     <Box
-      display={{ base: isOpen ? "block" : "none", md: "block" }}
+      display={{ base: isOpen ? "block" : "none", xl: "block" }}
       flexBasis={{ base: "100%", md: "auto" }}
     >
       <Stack
@@ -47,7 +47,7 @@ export const MenuLinks = ({ isOpen }) => {
             )
           })}
         </Flex>
-        <Flex minH="56px" maxW="18.813rem" gapX="29px" alignItems={{base: "normal", md: "center"}}>
+        <Flex minH="56px" maxW="18.813rem" gapX="29px" alignItems={{base: "normal", xl: "center"}}>
           {/* w="381px" */}
           {headerButtons.map((item) => {
             return (

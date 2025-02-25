@@ -21,13 +21,13 @@ export default function Programme() {
               </Flex>
               <Text minW="199px" minH="24px" fontWeight="600" fontSize="1.25rem" lineHeight="24px" color={{base: "#061C3D", _dark: "#FEFEFE"}} textAlign="center">12 Weeks Training</Text>
             </Flex>
-            <Flex minW="199px" minH="108px" gap="12px" flexDirection="column" alignItems="center">
+            <Flex maxW="199px" minH="108px" gap="12px" flexDirection="column" alignItems="center">
               <Flex bg={{base: "#F8D57E33", _dark: "#0A0A0A"}} maxW="72px" maxH="72px" borderRadius="10px" p="1.25rem" gap="10px">
                 <CiCalendar size="2rem"/>
               </Flex>
               <Text maxW="199px" minH="24px" fontWeight="600" fontSize="1.25rem" lineHeight="24px" color={{base: "#061C3D", _dark: "#FEFEFE"}} textAlign="center">Virtual Life Classes</Text>
             </Flex>
-            <Flex minW="199px" minH="108px" gap="12px" flexDirection="column" alignItems="center">
+            <Flex maxW="199px" minH="108px" gap="12px" flexDirection="column" alignItems="center">
               <Flex bg={{base: "#EBEFF2", _dark: "#0A0A0A"}} maxW="72px" maxH="72px" borderRadius="10px" p="1.25rem" gap="10px">
                 <FaRegIdBadge size="2rem"/>
               </Flex>
