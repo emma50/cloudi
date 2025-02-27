@@ -30,20 +30,20 @@ export const Left = () => {
 
         <Flex flexWrap="wrap" maxW="796px" gap="1.5rem" px={{base: "2rem", md: "0"}}>
           <Flex gap="8px" maxW="396px" minH="24px">
-            <LuCheckCheck color={colorMode !== "dark" ? "#005EDF" : "#ffffff"} size="1.5rem" />
-            <Text color={{base: "#005EDF", _dark: "#ffffff"}} fontWeight="500" fontSize="1rem" lineHeight="24px" maxW="354px" maxH="24px" textAlign="start">Master core DevOps principles and practices.</Text>
+            <LuCheckCheck color={colorMode !== "dark" ? "#005EDF" : "#6C7275"} size="1.5rem" />
+            <Text color={{base: "#005EDF", _dark: "#6C7275"}} fontWeight="500" fontSize="1rem" lineHeight="24px" maxW="354px" maxH="24px" textAlign="start">Master core DevOps principles and practices.</Text>
           </Flex>
           <Flex gap="8px" maxW="396px" minH="24px">
-            <LuCheckCheck color={colorMode !== "dark" ? "#005EDF" : "#ffffff"} size="24px" />
-            <Text color={{base: "#005EDF", _dark: "#ffffff"}} fontWeight="500" fontSize="16px" lineHeight="24px" maxW="354px" maxH="24px" textAlign="start">Learn to automate infrastructure.</Text>
+            <LuCheckCheck color={colorMode !== "dark" ? "#005EDF" : "#6C7275"} size="24px" />
+            <Text color={{base: "#005EDF", _dark: "#6C7275"}} fontWeight="500" fontSize="16px" lineHeight="24px" maxW="354px" maxH="24px" textAlign="start">Learn to automate infrastructure.</Text>
           </Flex>
           <Flex gap="8px" maxW="396px" minH="24px">
-            <LuCheckCheck color={colorMode !== "dark" ? "#005EDF" : "#ffffff"} size="24px" />
-            <Text color={{base: "#005EDF", _dark: "#ffffff"}} fontWeight="500" fontSize="16px" lineHeight="24px" maxW="354px" maxH="24px" textAlign="start">Build and deploy applications faster.</Text>
+            <LuCheckCheck color={colorMode !== "dark" ? "#005EDF" : "#6C7275"} size="24px" />
+            <Text color={{base: "#005EDF", _dark: "#6C7275"}} fontWeight="500" fontSize="16px" lineHeight="24px" maxW="354px" maxH="24px" textAlign="start">Build and deploy applications faster.</Text>
           </Flex>
           <Flex gap="8px" maxW="396px" minH="24px">
-            <LuCheckCheck color={colorMode !== "dark" ? "#005EDF" : "#ffffff"} size="24px" />
-            <Text color={{base: "#005EDF", _dark: "#ffffff"}} fontWeight="500" fontSize="16px" lineHeight="24px" maxW="354px" maxH="24px" textAlign="start">Become Certified.</Text>
+            <LuCheckCheck color={colorMode !== "dark" ? "#005EDF" : "#6C7275"} size="24px" />
+            <Text color={{base: "#005EDF", _dark: "#6C7275"}} fontWeight="500" fontSize="16px" lineHeight="24px" maxW="354px" maxH="24px" textAlign="start">Become Certified.</Text>
           </Flex>
         </Flex>
 
