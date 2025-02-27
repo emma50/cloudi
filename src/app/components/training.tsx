@@ -21,15 +21,16 @@ export default function Training() {
               borderRadius="7px"
               h="56px"
               w="176px"
+              variant="solid"
             >
-              <Text as="span" color="#FFFFFF" fontWeight="700" fontSize="16px" lineHeight="48px" textAlign="center">Enroll now </Text>
+              <Text color="#FFFFFF" fontWeight="700" fontSize="16px" lineHeight="48px" textAlign="center">Enroll now </Text>
               <IoIosArrowRoundForward color="#FFFFFF" size="24px" />
             </Button>
           </Flex>
         </Flex>
       </Flex>
       {/* Next category */}
-      <Flex flexDirection={{base: "column", md: "row"}} maxW="1282px" minH="21.875rem" justifyContent={{base: "normal", md: "space-between"}} alignItems={{base: "center", md: "normal"}} flexWrap="wrap" mx="auto" gap="1.5rem">
+      <Flex flexDirection={{base: "column", md: "row"}} maxW="1282px" minH="21.875rem" justifyContent={{base: "normal", md: "space-between"}} alignItems={{base: "center", md: "normal"}} flexWrap="wrap" mx="auto" gap="3.5rem">
         {trainingCard.map((item) => {
           return (
             <CustomCard key={item.id} {...item} />
@@ -42,8 +43,16 @@ export default function Training() {
 
 const CustomCard = ({id, icon, title, desc}: {id: number; icon: any; title: string; desc: string}) => {
   return (
-    <Card.Root display="flex" bg={{base: "#FBFDFF", _dark: "#0A0A0A"}} maxW="23.125rem" minH="21.875rem" borderRadius="20px" px="1.25rem" py="2.5rem" border={{base: "1px solid #e5f4f2", _dark: "1px solid linear-gradient(180deg, #E1F5F2 0%, rgba(0, 96, 231, 0.44) 100%)"}} boxShadow={{base: "34.85px 29.63px 48.34px 0px #3366FF0D", _dark: "-15px -22px 48.34px 0px #3366FF0D"}}>
-      {/* width="320px" */}
+    <Card.Root 
+      display="flex" 
+      bg={{base: "#FBFDFF", _dark: "#0A0A0A"}} maxW="23.125rem" minH="21.875rem" borderRadius="20px" 
+      px="1.25rem" 
+      py="2.5rem" 
+      border="1px solid" 
+      borderImage={{base: "#e5f4f2", _dark: "linear-gradient(180deg, #E1F5F2 0%, rgba(0, 96, 231, 0.44) 100%) 1"}} 
+      boxShadow={{base: "34.85px 29.63px 48.34px 0px #3366FF0D", _dark: "-15px -22px 48.34px 0px #3366FF0D"}} 
+    >
+      {/* width="320px" border={{base: "1px solid #e5f4f2", _dark: "1px solid linear-gradient(180deg, #E1F5F2 0%, rgba(0, 96, 231, 0.44) 100%)"}} */}
       <Card.Body display="flex" maxW="19.375rem" minH="15.75rem" gap="1.875rem" flexDirection="column">
         <Box w="4rem" h="4rem" borderRadius="10px" p="1.25rem" gap="0.625rem" bg={{base: `${id === 1 ? "#F8D57E33" : id === 2 ? "#CAECCD" : "#D7EAF8"}`, _dark: "#D7EAF8"}} mx="auto" >{icon}</Box>
         <Flex maxW="19.375rem" minH="9.875rem" gap="1.5rem" flexDirection="column">

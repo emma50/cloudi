@@ -29,12 +29,31 @@ export default function Learning() {
             )
           })}
         </Flex>
-        <Flex justifyContent="flex-end" position="relative" bottom={{base: "160px", sm: "360px", lg: "100px"}}>
+        <Flex justifyContent="flex-end" position="relative" bottom={{base: "160px", sm: "250px", lg: "100px"}} >
           <Image src="/images/training-image-1.png" w="inherit" alt="" />
         </Flex>
       </Flex>
       {/* Text and image 2 */}
-      <Flex maxW="1344px" minH="488px" gap="5rem" m={{base: "auto", md: "3.063rem"}} mt={{base: "-6.543rem", sm: "-17.543rem", md: "-16.543rem", lg: "8rem", xl: "2rem"}} flexDirection="column">
+      <Flex flexDirection={{base: "column", lg: "row"}} gap="2rem" position="relative" pr="-2rem" justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px">
+        <Flex flexDirection="column" justifyContent="flex-end" position="relative" bottom={{base: "160px", sm: "360px", lg: "100px"}}>
+          <Image src="/images/training-star.png" w="inherit" alt="" position="relative" bottom={{base: "0", sm: "0", md: "0", lg: "520px", xl: "520px"}} top={{base: "0", sm: "120px", md: "0", lg: "-500px", xl: "-500px"}} />
+          {/* bottom="520px" */}
+          <Image src="/images/training-image-2-rect.png" w="inherit" alt="" position="absolute" bottom={{base: "0", sm: "0", md: "0", lg: "340px", }} top={{base: "90px", sm: "240px", md: "170px", lg: "350px", xl: "120px"}} />
+          {/* bottom="340px" */}
+          <Image src="/images/training-image-2.png" w="inherit" alt="" position="absolute" bottom={{base: "0", sm: "0", md: "0", lg: "400px"}} top={{base: "100px", sm: "260px", md: "195px", lg: "365px", xl: "140px"}} />
+          {/* bottom="400px" */}
+        </Flex>
+        <Flex maxW="628px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}}>
+          {learningList.map((item: any) => {
+            return (
+              <CustomLearningCard key={item.id} {...item} />
+            )
+          })}
+        </Flex>
+      </Flex>
+      {/* --------------------------------------------------------------- */}
+      <Flex maxW="1344px" minH="488px" gap="5rem" m={{base: "auto", md: "3.063rem"}} flexDirection="column" mt={{base: "6rem", lg: "8rem", xl: "6rem"}}>
+        {/* mt={{base: "-6.543rem", sm: "-17.543rem", md: "-16.543rem", lg: "8rem", xl: "2rem"}} */}
         {/* 3.063rem */}
         <Flex maxW="1260px" minH="132px" gap="1rem" flexDirection="column">
           <Text maxW="1260px" minH="60px" fontWeight="500" fontSize="3rem" lineHeight="3.75rem" textAlign="center" color={{base: "#000000", _dark: "#3E90F0"}}>Our Payment Options</Text>
@@ -72,7 +91,7 @@ const CustomCard = ({id, title, amount, desc}: {id: number; title: string; amoun
 
 const CustomLearningCard = ({icon, title, desc}: {icon: any; title: string; desc: string;}) => {
   return (
-    <Card.Root maxW="628px" minH="220px" borderRadius="1.25rem" py="2.5rem" px="1.875rem" gap="2rem" border={{base: "1px solid linear-gradient(180deg, #E6E8EC 0%, rgba(0, 96, 231, 0.19) 100%)", _dark: "1px solid linear-gradient(180deg, #E1F5F2 0%, rgba(0, 96, 231, 0.44) 100%)"}} bg={{base: "transparent", _dark: "#0A0A0A"}} boxShadow={{base: "none", _dark: "34.85px 29.63px 48.34px 0px #3366FF0D"}} zIndex="10">
+    <Card.Root maxW="628px" minH="220px" borderRadius="1.25rem" py="2.5rem" px="1.875rem" gap="2rem" borderWidth="1px" borderStyle="solid" borderImage={{base: "linear-gradient(180deg, #E6E8EC 0%, rgba(0, 96, 231, 0.19) 100%) 1", _dark: "linear-gradient(180deg, #E1F5F2 0%, rgba(0, 96, 231, 0.44) 100%) 1"}}  bg={{base: "transparent", _dark: "#0A0A0A"}} boxShadow={{base: "none", _dark: "34.85px 29.63px 48.34px 0px #3366FF0D"}} zIndex="10">
       <Card.Body gap="1.5rem" maxW="549px" minH="140px" display="flex" flexDirection={{base: "column", md: "row"}}>
         <Flex maxW="4.75rem" maxH="4.75rem" p="1.25rem" gap="10px" bg={{base: " #AEC6EA80", _dark: "#333333"}} justifyContent="center" alignItems="center">{icon}</Flex>
         <Flex maxW="449px" minH="140px" gap="1.25rem" flexDirection="column">

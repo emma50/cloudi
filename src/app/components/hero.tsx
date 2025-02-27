@@ -54,8 +54,7 @@ export const Left = () => {
               <Button
                 key={item.id}
                 bg={{base: `${item.title === "Enroll now" ? "#005EDF" : "transparent"}}`, _dark: `${item.title === "Enroll now" ? "#005EDF" : "#000000"}}`}}
-                border={item.title !== "Enroll now" ? "1px" : "none"}
-                colorPalette={{ base: `${item.title !== "Enroll now" ? " #005EDF" : "none"}}`, _dark: `${item.title !== "Enroll now" ? " #FFFFFF" : "none"}}`}} 
+                style={{border: `${item.title === "Enroll now" ? "none" : colorMode !== "dark" ? "1px solid #005EDF" : "1px solid #ffffff" }`}}
                 variant={item.title === "Enroll now" ? "solid" : "outline"}
                 p="32px"
                 gap="12px"
@@ -64,7 +63,7 @@ export const Left = () => {
                 h="56px"
                 w="176px"
               >
-                <Text as="span" color={{base: `${item.title === "Enroll now" ? "#FFFFFF" : "#005EDF"}}`, _dark: "#FFFFFF"}} fontWeight="700" fontSize="16px" lineHeight="48px" textAlign="center">{item.title} </Text>
+                <Text fontWeight="700" fontSize="16px" lineHeight="48px" textAlign="center" style={{color: `${colorMode !== "dark" && item.title === "Enroll now" ? "#ffffff" : colorMode !== "dark" && item.title !== "Enroll now" ? "#005EDF" : "#ffffff" }`}}>{item.title} </Text>
                 {item.title === "Enroll now" && <IoIosArrowRoundForward color="#FFFFFF" size="24px" />}
               </Button>
             )
