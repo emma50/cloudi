@@ -1,9 +1,13 @@
 import { Box, Flex, Text, Image, Card } from "@chakra-ui/react"
 import { GoPackage } from "react-icons/go";
 import { useColorMode } from "@/components/ui/color-mode";
+import { useMediaQuery } from 'react-responsive'
+
 
 export default function Learning() {
   const { colorMode } = useColorMode()
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 1060, maxWidth: 1144 })
+  const isDesktopOrLaptopTwo = useMediaQuery({ minWidth: 1144, maxWidth: 1296 })
   return (
     <Box maxW="1440px" minH="2035px" pt="5rem">
       {/* bg={{base: "#F8F9FF", _dark: "#000000"}} */}
@@ -21,7 +25,7 @@ export default function Learning() {
         <Text maxW="646px" minH="66px" fontWeight="400" fontSize="1.5rem" lineHeight="1.75rem" textAlign="center" color={{base: "#000000", _dark: "#FEFEFE"}} mx="auto" zIndex="99">Master essential technical and soft skills to prepare you for a career in Devops Engineering in 12 weeks.</Text>
       </Flex>
       {/* Text and image 1 */}
-      <Flex flexDirection={{base: "column", lg: "row"}} gap="2rem" position="relative" pr="-2rem" justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px">
+      <Flex flexDirection={{base: "column", lg: "row"}} gap="2rem" position="relative" pr="-2rem"  pb="2rem" justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px">
         <Flex maxW="628px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}}>
           {learningList.map((item: any) => {
             return (
@@ -36,12 +40,34 @@ export default function Learning() {
       {/* Text and image 2 */}
       <Flex flexDirection={{base: "column", lg: "row"}} gap="2rem" position="relative" pr="-2rem" justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px">
         <Flex flexDirection="column" justifyContent="flex-end" position="relative" bottom={{base: "160px", sm: "360px", lg: "100px"}}>
-          <Image src="/images/training-star.png" w="inherit" alt="" position="relative" bottom={{base: "0", sm: "0", md: "0", lg: "520px", xl: "520px"}} top={{base: "0", sm: "120px", md: "0", lg: "-500px", xl: "-500px"}} />
-          {/* bottom="520px" */}
-          <Image src="/images/training-image-2-rect.png" w="inherit" alt="" position="absolute" bottom={{base: "0", sm: "0", md: "0", lg: "340px", }} top={{base: "90px", sm: "240px", md: "170px", lg: "350px", xl: "120px"}} />
-          {/* bottom="340px" */}
-          <Image src="/images/training-image-2.png" w="inherit" alt="" position="absolute" bottom={{base: "0", sm: "0", md: "0", lg: "400px"}} top={{base: "100px", sm: "260px", md: "195px", lg: "365px", xl: "140px"}} />
-          {/* bottom="400px" */}
+          {isDesktopOrLaptop ? (
+            <>
+              <Image src="/images/training-star.png" w="inherit" alt="" position="relative" bottom="" top="-400px" />
+              {/* bottom="520px" */}
+              <Image src="/images/training-image-2-rect.png" w="inherit" alt="" position="absolute" bottom="" top="365px" />
+              {/* bottom="340px" */}
+              <Image src="/images/training-image-2.png" w="inherit" alt="" position="absolute" bottom="" top="380px" />
+              {/* bottom="400px" */}
+            </>
+          ) : isDesktopOrLaptopTwo ? (
+            <>
+              <Image src="/images/training-star.png" w="inherit" alt="" position="relative" bottom={{base: "0", sm: "0", md: "0", lg: "520px", xl: "520px"}} top={{base: "0", sm: "120px", md: "0", lg: "-380px", xl: "-500px"}} />
+              {/* bottom="520px" */}
+              <Image src="/images/training-image-2-rect.png" w="inherit" alt="" position="absolute" bottom={{base: "0", sm: "0", md: "0", lg: "340px", }} top={{base: "90px", sm: "240px", md: "170px", lg: "290px", xl: "120px"}} />
+              {/* bottom="340px" */}
+              <Image src="/images/training-image-2.png" w="inherit" alt="" position="absolute" bottom={{base: "0", sm: "0", md: "0", lg: "400px"}} top={{base: "100px", sm: "260px", md: "195px", lg: "305px", xl: "140px"}} />
+              {/* bottom="400px" */}
+            </>
+          ) : (
+            <>
+              <Image src="/images/training-star.png" w="inherit" alt="" position="relative" bottom={{base: "0", sm: "0", md: "0", lg: "520px", xl: "520px"}} top={{base: "0", sm: "120px", md: "0", lg: "-500px", xl: "-500px"}} />
+              {/* bottom="520px" */}
+              <Image src="/images/training-image-2-rect.png" w="inherit" alt="" position="absolute" bottom={{base: "0", sm: "0", md: "0", lg: "340px", }} top={{base: "90px", sm: "240px", md: "170px", lg: "350px", xl: "120px"}} />
+              {/* bottom="340px" */}
+              <Image src="/images/training-image-2.png" w="inherit" alt="" position="absolute" bottom={{base: "0", sm: "0", md: "0", lg: "400px"}} top={{base: "100px", sm: "260px", md: "195px", lg: "365px", xl: "140px"}} />
+              {/* bottom="400px" */}
+            </>
+          )}
         </Flex>
         <Flex maxW="628px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}}>
           {learningList.map((item: any) => {
