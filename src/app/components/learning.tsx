@@ -25,7 +25,7 @@ export default function Learning() {
         <Text maxW="646px" minH="66px" fontWeight="400" fontSize="1.5rem" lineHeight="1.75rem" textAlign="center" color={{base: "#000000", _dark: "#FEFEFE"}} mx="auto" zIndex="99">Master essential technical and soft skills to prepare you for a career in Devops Engineering in 12 weeks.</Text>
       </Flex>
       {/* Text and image 1 */}
-      <Flex flexDirection={{base: "column", lg: "row"}} gap="2rem" position="relative" pr="-2rem"  pb="2rem" justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px">
+      <Flex flexDirection={{base: "column", lg: "row"}} gap="2rem" position="relative" pr="-2rem"  pb={`${isDesktopOrLaptop || isDesktopOrLaptopTwo ? "2rem" : ".5rem"}`} justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px">
         <Flex maxW="628px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}}>
           {learningList.map((item: any) => {
             return (
