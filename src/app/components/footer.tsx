@@ -1,4 +1,4 @@
-import { Text, Flex, Input, Button, Separator, Stack, Image, Link } from "@chakra-ui/react"
+import { Text, Flex, Input, Button, Separator, Image, Link } from "@chakra-ui/react"
 import { TiSocialTwitter, TiSocialLinkedin } from "react-icons/ti";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { useColorMode } from "@/components/ui/color-mode";
@@ -31,9 +31,7 @@ export default function Footer() {
             </Button>
           </Flex>
         </Flex>
-        <Stack gap="4">
-          <Separator variant="solid" colorPalette="red" size="lg" width="100%" />
-        </Stack>
+        <Separator variant="solid" colorPalette="gray" size="lg" maxW="100%" w="1216px" orientation="horizontal" height="1px" />
         {/*  */}
         <Flex flexDirection="column" maxW="1216px" minH="162px" gap="12px">
           {/*  */}
@@ -62,9 +60,7 @@ export default function Footer() {
             </Flex>
           </Flex>
         </Flex>
-        <Stack gap="4">
-          <Separator variant="solid" colorPalette="red" size="lg" />
-        </Stack>
+        <Separator variant="solid" colorPalette="gray.100" size="sm" maxW="100%" w="1216px" orientation="horizontal" height="1px" />
         <Flex maxW="1216px" minH="56px" gap="2rem">
           <Flex maxW="359px" minH="23px" gap="1rem">
             <Text minW="262px" minH="23px" fontWeight="400" fontSize="1rem" lineHeight="23.2px" textAlign="center" color={{base: "#6C7275", _dark: "#E8ECEF"}}>© 2025 Cloudi. All rights reserved.</Text>

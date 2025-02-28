@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Box, Flex, Text, Button, Stack, Image } from "@chakra-ui/react";
+import { Link, Box, Flex, Text, Button, Stack, Image, Separator, HStack } from "@chakra-ui/react";
 import { ColorModeButton } from "@/components/ui/color-mode";
 import { headerList, headerButtons } from "@/utils/data";
 import { IoIosArrowRoundForward } from "react-icons/io";
@@ -27,6 +27,9 @@ const NavBar = (props: any) => {
         <Flex>
           {colorMode !== "dark" ? <Image src="/images/cloudi.png" /> : <Image src="/images/cloudi-white.png" />}
           <ColorModeButton />
+          <HStack gap="4" display={{base: "none", lg: "flex"}} pl="2rem">
+            <Separator variant="solid" color="#E6E8EC" size="lg" w="20px" orientation="vertical" height="40px" />
+          </HStack>
           <Flex pl="2rem" alignItems="center">
             <LargeMenuLinks isOpen={isOpen} />
           </Flex>
@@ -80,7 +83,7 @@ const MenuToggle = ({ toggle, isOpen }: {toggle: any; isOpen: any;}) => {
 
 const MenuItem = ({ children, to = "/", size, ...rest }: {children: any; to: any; size?: any}) => {
   return (
-    <Link href={to} color="#838E9E"mr="1.25rem" minW="41px" gapX="8px" _active={{ color: { base: "#005EDF", _dark: "#E8ECEF" }}} _hover={{ color: { base: "#005EDF", _dark: "#E8ECEF" }}} my={size}>
+    <Link href={to} color="#838E9E" mr="1.25rem" minW="41px" gapX="8px" _active={{ color: { base: "#005EDF", _dark: "#E8ECEF" }}} _hover={{ color: { base: "#005EDF", _dark: "#E8ECEF" }}} my={size}>
       <Text display="block" {...rest} minW="35px" h="20px" lineHeight="20px" fontSize="14px" fontWeight="400" fontFamily="Lexend, sans-serif">
         {children}
       </Text>
