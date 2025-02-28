@@ -17,8 +17,8 @@ export default function Learning() {
         </Box>
       </Flex>
       <Flex flexDirection="column" maxW="100%" minH="132px" gap="1rem" alignItems="center" py="7.5rem">
-        <Text maxW="1260px" minH="60px" fontWeight="600" fontSize="3rem" lineHeight="3.75rem" textAlign="center" color={{base: "#000000", _dark: "#3E90F0"}} mx="auto">What You Will Learn</Text>
-        <Text maxW="646px" minH="66px" fontWeight="400" fontSize="1.5rem" lineHeight="1.75rem" textAlign="center" color={{base: "#000000", _dark: "#FEFEFE"}} mx="auto">Master essential technical and soft skills to prepare you for a career in Devops Engineering in 12 weeks.</Text>
+        <Text maxW="1260px" minH="60px" fontWeight="600" fontSize="3rem" lineHeight="3.75rem" textAlign="center" color={{base: "#000000", _dark: "#3E90F0"}} mx="auto" zIndex="99">What You Will Learn</Text>
+        <Text maxW="646px" minH="66px" fontWeight="400" fontSize="1.5rem" lineHeight="1.75rem" textAlign="center" color={{base: "#000000", _dark: "#FEFEFE"}} mx="auto" zIndex="99">Master essential technical and soft skills to prepare you for a career in Devops Engineering in 12 weeks.</Text>
       </Flex>
       {/* Text and image 1 */}
       <Flex flexDirection={{base: "column", lg: "row"}} gap="2rem" position="relative" pr="-2rem" justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px">
