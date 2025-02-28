@@ -23,14 +23,14 @@ const NavBar = (props: any) => {
       <Flex>
         <MenuToggle toggle={toggle} isOpen={isOpen} />
       </Flex> */}
-      <Flex w={{base: "100%", lg: "50%", xl: "initial"}} justifyContent="space-between" pr="2rem" pl={{base: "initial", xl: "4rem"}}>
+      <Flex w={{base: "100%", lg: "50%", xl: "initial"}} justifyContent="space-between" pr={{base: "initial", lg: ".2rem", xl: "2rem" }} pl={{base: "initial", lg: "0", xl: "4rem"}}>
         <Flex>
           {colorMode !== "dark" ? <Image src="/images/cloudi.png" /> : <Image src="/images/cloudi-white.png" />}
           <Flex alignItems="center" pl="1rem"><ColorModeButton /></Flex>
-          <HStack gap="4" display={{base: "none", lg: "flex"}} pl="2rem">
+          <HStack gap="4" display={{base: "none", lg: "flex"}} pl={{base: "2rem", lg: ".2rem", xl: "2rem"}}>
             <Separator variant="solid" color="#E6E8EC" size="lg" w="20px" orientation="vertical" height="40px" />
           </HStack>
-          <Flex pl="2rem" alignItems="center">
+          <Flex pl={{base: "2rem", lg: ".2rem", xl: "2rem"}} alignItems="center">
             <LargeMenuLinks isOpen={isOpen} />
           </Flex>
         </Flex>
@@ -38,7 +38,7 @@ const NavBar = (props: any) => {
           <MenuToggle toggle={toggle} isOpen={isOpen} />
         </Flex>
       </Flex>
-      <Flex alignItems={{base: "initial", lg: "flex-start"}} mt={{base: "initial", lg: "-2rem"}}>
+      <Flex w={{base: "initial", lg: "50%", xl: "initial"}} alignItems={{base: "initial", lg: "flex-start"}} justifyContent={{base: "initial", lg: "flex-end"}} mt={{base: "initial", lg: "-2rem"}}>
         <MenuLinks isOpen={isOpen} />
       </Flex>
     </NavBarContainer>
@@ -156,7 +156,7 @@ const LargeMenuLinks = ({ isOpen }: {isOpen: any}) => {
         direction={["column", "column", "column", "row"]}
         pt={[4, 4, 0, 0]}
       >
-        <Flex display={{base: "none", lg: "flex"}} flexDirection={{base: "column", lg: "row"}} alignItems={{base: "initial", lg: "center"}} gap={{base: "0", lg: "2.5rem", xl: "3.5rem"}}>
+        <Flex display={{base: "none", lg: "flex"}} flexDirection={{base: "column", lg: "row"}} alignItems={{base: "initial", lg: "center"}} gap={{base: "0", lg: ".5rem", xl: "3.5rem"}}>
           {headerList.map((item) => {
             return (
               <MenuItem to="/" size={{base: "1rem", lg: "initial"}}>{item.title}</MenuItem>
