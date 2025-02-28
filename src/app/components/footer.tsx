@@ -31,7 +31,7 @@ export default function Footer() {
           </Flex>
         </Flex>
         <Stack gap="4">
-          <Separator variant="solid" colorPalette="red" size="lg" />
+          <Separator variant="solid" colorPalette="red" size="lg" width="100%" />
         </Stack>
         {/*  */}
         <Flex flexDirection="column" maxW="1216px" minH="162px" gap="12px">

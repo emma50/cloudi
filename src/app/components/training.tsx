@@ -48,8 +48,9 @@ const CustomCard = ({id, icon, title, desc}: {id: number; icon: any; title: stri
       bg={{base: "#FBFDFF", _dark: "#0A0A0A"}} maxW="23.125rem" minH="21.875rem" borderRadius="20px" 
       px="1.25rem" 
       py="2.5rem" 
-      border="1px solid" 
-      borderImage={{base: "#e5f4f2", _dark: "linear-gradient(180deg, #E1F5F2 0%, rgba(0, 96, 231, 0.44) 100%) 1"}} 
+      border={{base: "none", _dark: "1px solid" }}
+      borderImage={{base: "initial", _dark: "linear-gradient(180deg, #E1F5F2 0%, rgba(0, 96, 231, 0.44) 100%) 1"}} 
+      // "#e5f4f2"
       boxShadow={{base: "34.85px 29.63px 48.34px 0px #3366FF0D", _dark: "-15px -22px 48.34px 0px #3366FF0D"}} 
     >
       {/* width="320px" border={{base: "1px solid #e5f4f2", _dark: "1px solid linear-gradient(180deg, #E1F5F2 0%, rgba(0, 96, 231, 0.44) 100%)"}} */}
