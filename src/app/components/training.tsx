@@ -6,11 +6,11 @@ import { LuNotepadText } from "react-icons/lu";
 
 export default function Training() {
   return (
-    <Flex maxW="100%" minH="762px" gap="72px" flexWrap="wrap" pt={{base: "0", sm: "10rem", md: "10rem", lg: "0"}} >
+    <Flex maxW="100%" minH="762px" gap="72px" flexWrap="wrap" pt={{base: "0", sm: "10rem", md: "10rem", lg: "0", xl: "3rem"}} >
       {/* px="5rem" mt={{base: "10rem", md: "5rem"}} pt="5rem" pb="7.75rem"*/}
-      <Flex maxW="1274px" minH="136px" flexWrap="wrap" mx="auto" pt={{base: "5rem", md: "auto"}} gap={{base: "1.5rem", md: "0"}}>
-        <Text maxW="608px" minH="120px" fontWeight="600" fontSize="3rem" lineHeight="60px" color={{base: "#061C3D", _dark: "#3E90F0"}} textAlign={{base: "center", md: "center", lg: "start"}} mx={{base: "auto", md: "initial"}}>Why Choose This Training?</Text>
-        <Flex flexDirection="column" maxW="569px" minH="136px" gap="24px" alignItems={{base: "center", md: "normal"}} mx="auto" pt={{base: "2rem", lg: "initial"}}>
+      <Flex maxW="1274px" minH="136px" flexWrap="wrap" mx="auto" pt={{base: "5rem", md: "auto", lg: "0"}} gap={{base: "1.5rem", md: "0"}}>
+        <Text maxW={{base: "608px", lg: "460px", xl: "608px"}} minH="120px" fontWeight="600" fontSize="3rem" lineHeight="60px" color={{base: "#061C3D", _dark: "#3E90F0"}} textAlign={{base: "center", md: "center", lg: "start"}} mx={{base: "auto", md: "initial"}}>Why Choose This Training?</Text>
+        <Flex flexDirection="column" maxW={{base: "569px", lg: "480px", xl: "569px"}} minH="136px" gap="24px" alignItems={{base: "center", md: "normal"}} mx="auto" pt={{base: "2rem", lg: "initial"}}>
           <Text maxW="568px" minH="56px" fontWeight="400" fontSize="20px" lineHeight="28px" color={{base: "#061C3D", _dark:"#FEFEFE"}} textAlign={{base: "center", md: "start"}}>Go from Beginner to Pro with expert mentorship and practical projects in 8 weeks.</Text>
           <Flex justifyContent="start">
             <Button
