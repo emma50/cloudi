@@ -26,7 +26,7 @@ const NavBar = (props: any) => {
       <Flex w={{base: "100%", lg: "50%", xl: "initial"}} justifyContent="space-between" pr="2rem" pl={{base: "initial", xl: "4rem"}}>
         <Flex>
           {colorMode !== "dark" ? <Image src="/images/cloudi.png" /> : <Image src="/images/cloudi-white.png" />}
-          <ColorModeButton />
+          <Flex alignItems="center" pl="1rem"><ColorModeButton /></Flex>
           <HStack gap="4" display={{base: "none", lg: "flex"}} pl="2rem">
             <Separator variant="solid" color="#E6E8EC" size="lg" w="20px" orientation="vertical" height="40px" />
           </HStack>
