@@ -1,4 +1,4 @@
-import { Text, Box, Flex, Image, Button } from "@chakra-ui/react"
+import { Text, Flex, Image, Button } from "@chakra-ui/react"
 import { LuCheckCheck } from "react-icons/lu";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { useColorMode } from "@/components/ui/color-mode";
@@ -6,7 +6,7 @@ import { useColorMode } from "@/components/ui/color-mode";
 export default function Hero() {
   return (
     <>
-      <Flex gap="89px" align="center" justify="space-between" flexDirection={{ base: "column", lg: "row" }} minH="594px" pb={{base: "0", md: "80px"}} mx="auto" maxW="1232px">
+      <Flex gap={{base: "89px", lg:".5rem"}} align={{base: "center", lg: "start"}} justify="space-between" flexDirection={{ base: "column", lg: "row" }} minH="594px" pb={{base: "0", md: "80px"}} mx="auto" maxW="1232px">
         {/* py="80px" maxH={{base: "auto", lg: "594px"}}*/}
         <Left />
         <Right />
@@ -18,7 +18,7 @@ export default function Hero() {
 export const Left = () => {
   const { colorMode } = useColorMode()
   return (
-    <Flex minH="508px" maxW="648px" flexDir="column" justify="center" mt={{base: "auto", lg: "5rem"}}>
+    <Flex minH="508px" maxW="648px" flexDir="column" justify="center" mt={{base: "auto", lg: "3rem"}} w={{base: "auto", lg: "50%"}}>
       {/* height={{ base: "auto", lg: "508px" }} */}
       <Flex flexDirection="column" gapY="2.5rem" mx={{base: "auto", md: "0", lg: "0"}}> 
         <Flex flexDirection="column" gapY="1rem" px={{base: "2rem", md: "0"}}>
@@ -75,10 +75,17 @@ export const Left = () => {
 }
 
 export const Right = () => {
+  const {colorMode} = useColorMode();
+  
   return (
-    <Box maxW="606px" maxH="394px" borderRadius="8px">
-      <Image src="/images/hero-group.png" alt="hero-group" />
-    </Box>
+    <Flex maxW="606px" maxH="994px" borderRadius="8px" w={{base: "auto", lg: "50%"}}>
+      {/*maxH="594px" w={{base: "auto", lg: "50%"}} */}
+      {colorMode !== "dark" ? (
+        <Image src="/images/hero-group.png" alt="hero-group" h={{base: "auto", lg: "724px"}} borderRadius="8px"/>
+      ) : (
+        <Image src="/images/hero-group-dark.png" alt="hero-group" h={{base: "auto", lg: "724px"}} borderRadius="8px"/>
+      )}
+    </Flex>
   )
 }
 
