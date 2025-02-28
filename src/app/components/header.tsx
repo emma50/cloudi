@@ -6,6 +6,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { useColorMode } from "@/components/ui/color-mode";
 
 const NavBar = (props: any) => {
+  const {colorMode} = useColorMode();
   const [isOpen, setIsOpen] = React.useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -22,9 +23,9 @@ const NavBar = (props: any) => {
       <Flex>
         <MenuToggle toggle={toggle} isOpen={isOpen} />
       </Flex> */}
-      <Flex w={{base: "100%", lg: "50%", xl: "initial"}} justifyContent="space-between" mr="2rem">
+      <Flex w={{base: "100%", lg: "50%", xl: "initial"}} justifyContent="space-between" pr="2rem" pl={{base: "initial", xl: "4rem"}}>
         <Flex>
-          <Image src="/images/cloudi.png" />
+          {colorMode !== "dark" ? <Image src="/images/cloudi.png" /> : <Image src="/images/cloudi-white.png" />}
           <ColorModeButton />
           <Flex pl="2rem" alignItems="center">
             <LargeMenuLinks isOpen={isOpen} />
