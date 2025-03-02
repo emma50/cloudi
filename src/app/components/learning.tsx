@@ -20,13 +20,13 @@ export default function Learning() {
           {colorMode === "dark" ? <Image src="/images/training-ellipse-dark.png" alt="" opacity="0.5" /> : <Image src="/images/training-ellipse.png" alt="" />}
         </Box>
       </Flex>
-      <Flex flexDirection="column" maxW="100%" minH="132px" gap="1rem" alignItems="center" py="7.5rem">
+      <Flex flexDirection="column" maxW="100%" minH="132px" gap="1rem" alignItems="center" py={{base: "7.5rem", md: "5.5rem"}}>
         <Text maxW="1260px" minH="60px" fontWeight="600" fontSize="3rem" lineHeight="3.75rem" textAlign="center" color={{base: "#000000", _dark: "#3E90F0"}} mx="auto" zIndex="99">What You Will Learn</Text>
         <Text maxW="646px" minH="66px" fontWeight="400" fontSize="1.5rem" lineHeight="1.75rem" textAlign="center" color={{base: "#000000", _dark: "#FEFEFE"}} mx="auto" zIndex="99">Master essential technical and soft skills to prepare you for a career in Devops Engineering in 12 weeks.</Text>
       </Flex>
       {/* Text and image 1 */}
       <Flex flexDirection={{base: "column", lg: "row"}} gap="2rem" position="relative" pr="-2rem"  pb={`${isDesktopOrLaptop || isDesktopOrLaptopTwo ? "2rem" : ".5rem"}`} justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px">
-        <Flex maxW="628px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}}>
+        <Flex maxW="628px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}}  pl="2rem" px={{base: "2rem", md: "initial"}}>
           {learningList.map((item: any) => {
             return (
               <CustomLearningCard key={item.id} {...item} />
@@ -69,7 +69,7 @@ export default function Learning() {
             </>
           )}
         </Flex>
-        <Flex maxW="628px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}}>
+        <Flex maxW="628px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}} pr="2rem" px={{base: "2rem", md: "initial"}}>
           {learningList.map((item: any) => {
             return (
               <CustomLearningCard key={item.id} {...item} />
@@ -100,7 +100,7 @@ export default function Learning() {
 
 const CustomCard = ({id, title, amount, desc}: {id: number; title: string; amount: string; desc: string;}) => {
   return (
-    <Card.Root maxW="660px" overflow="hidden" minH="276px" borderRadius="20px" bg={{base: `${id === 1 ? "#005EDF" : "#FEFEFE"}`, _dark: `${id === 1 ? "#005EDF" : "#0A0A0A"}`}} border={{base: "none", _dark: `${id !== 1 ? "1px solid #3E90F0" : "none"}`}}>
+    <Card.Root maxW="550px" overflow="hidden" minH="276px" borderRadius="20px" bg={{base: `${id === 1 ? "#005EDF" : "#FEFEFE"}`, _dark: `${id === 1 ? "#005EDF" : "#0A0A0A"}`}} border={{base: "none", _dark: `${id !== 1 ? "1px solid #3E90F0" : "none"}`}}>
       <Card.Body gap="4px" minW="252px" minH="124px" py="1.5rem" px="1.75rem">
         <Card.Title minW="209px" minH="60px" fontWeight="400" fontSize="2.25rem" lineHeight="3.75rem" textAlign="start" color={{base: `${id === 1 ? "#ffffff" : "#000000"}`, _dark: "#ffffff"}}>{title}</Card.Title>
         <Text minW="139px" maxW={{base: "232px", sm: "352px"}} minH="60px" fontWeight="600" fontSize="2.5rem" lineHeight="3.75rem" textAlign="start" color={{base: `${id === 1 ? "#ffffff" : "#000000"}`, _dark: "#ffffff"}}>

@@ -27,7 +27,7 @@ export default function Footer() {
               h="55px"
               maxW="135px"
             >
-              <Text as="span" color="#FFFFFF" fontWeight="600" fontSize="1rem" lineHeight="23.2px" textAlign="center" maxW="79px" minH="23px">Enroll now </Text>
+              <Text as="span" color={{base: "#ffffff", _dark: "#000000"}} fontWeight="600" fontSize="1rem" lineHeight="23.2px" textAlign="center" maxW="79px" minH="23px">Subscribe</Text>
             </Button>
           </Flex>
         </Flex>

@@ -4,8 +4,8 @@ import { FaInstagram } from "react-icons/fa";
 
 export default function Instructor() {
   return (
-    <Box minH="1009px" bg={{base: "#F8F9FF", _dark: "#000000"}} mx="auto" pt={{base: "2rem", sm: "2rem", md: "5rem"}}>
-      <Flex maxW="1052px" minH="128px" gap="1rem" flexDirection="column" mx="auto">
+    <Box minH="1009px" bg={{base: "#F8F9FF", _dark: "#000000"}} mx="auto" pt={{base: "2rem", sm: "2rem", md: "5rem"}} >
+      <Flex maxW="1052px" minH="128px" gap="1rem" flexDirection="column" mx="auto" px="1rem">
         <Text minW={{base: "auto", md: "483px"}} minH="60px" color={{base: "#000000", _dark: "#3E90F0"}} fontWeight="600" fontSize="3rem" lineHeight="3.75rem" textAlign="center">Meet your Instructors</Text>
         <Text maxW="1052px" minH="52px" fontWeight="400" fontSize="1.125rem" lineHeight="1.625rem" textAlign="center" color={{base: "#2D2D2D", _dark: "#E8ECEF"}}>Our instructors are experienced practitioners who bring years of experience making sure you're learning the most up-to-date and practical skills companies around the world need.</Text>
       </Flex>
@@ -21,7 +21,20 @@ export default function Instructor() {
 
 export const CustomCard = ({name, title, image}: {name: string; title: string; image: string}) => {
   return (
-    <Card.Root overflow="hidden" bg={{base: "#FFFFFF", _dark: "#040E11"}} border={{base: "1px solid #000000", _dark: "1px solid linear-gradient(180deg, #E1F5F2 0%, rgba(0, 96, 231, 0.44) 100%)"}} gap="9px" borderRadius="20px" w="35.313rem" minH="37.5rem" py="2.5rem" boxShadow={{base: "none", _dark: "34.85px 29.63px 48.34px 0px #3366FF0D"}} mx="auto">
+    <Card.Root 
+      overflow="hidden" 
+      bg={{base: "#FFFFFF", _dark: "#040E11"}} 
+      // border={{base: "1px solid #000000", _dark: "1px solid linear-gradient(180deg, #E1F5F2 0%, rgba(0, 96, 231, 0.44) 100%)"}} 
+      gap="9px" 
+      borderRadius="20px" 
+      w="35.313rem" 
+      minH="37.5rem" 
+      py="2.5rem" 
+      boxShadow={{base: "none", _dark: "34.85px 29.63px 48.34px 0px #3366FF0D"}} 
+      mx="auto"
+      border={{base: "none", _dark: "1px solid" }}
+      borderImage={{base: "initial", _dark: "linear-gradient(180deg, #E1F5F2 0%, rgba(0, 96, 231, 0.44) 100%) 1"}} 
+    >
       {/* h="581px" */}
       <Image
         src={image}
