@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, Box, Flex, Text, Button, Stack, Image, Separator, HStack } from "@chakra-ui/react";
-import { ColorModeButton } from "@/components/ui/color-mode";
 import { headerList, headerButtons } from "@/utils/data";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { useColorMode } from "@/components/ui/color-mode";
@@ -13,20 +12,9 @@ const NavBar = (props: any) => {
 
   return (
     <NavBarContainer {...props}>
-      {/* <Flex>
-        <Image src="/images/cloudi.png" />
-        <ColorModeButton />
-        <Flex pl="4rem" alignItems="center">
-          <LargeMenuLinks isOpen={isOpen} />
-        </Flex>
-      </Flex>
-      <Flex>
-        <MenuToggle toggle={toggle} isOpen={isOpen} />
-      </Flex> */}
       <Flex w={{base: "100%", lg: "50%", xl: "initial"}} justifyContent="space-between" pr={{base: "initial", lg: ".2rem", xl: "2rem" }} pl={{base: "initial", lg: "0", xl: "4rem"}}>
         <Flex>
           {colorMode !== "dark" ? <Image src="/images/cloudi.png" /> : <Image src="/images/cloudi-white.png" />}
-          <Flex alignItems="center" pl="1rem"><ColorModeButton /></Flex>
           <HStack gap="4" display={{base: "none", lg: "flex"}} pl={{base: "2rem", lg: ".2rem", xl: "2rem"}}>
             <Separator variant="solid" color="#E6E8EC" size="lg" w="20px" orientation="vertical" height="40px" />
           </HStack>

@@ -57,13 +57,13 @@ const CustomCard = ({id, icon, title, desc}: {id: number; icon: any; title: stri
       border={{base: "none", _dark: "1px solid" }}
       borderImage={{base: "initial", _dark: "linear-gradient(180deg, #E1F5F2 0%, rgba(0, 96, 231, 0.44) 100%) 1"}} 
       boxShadow={{base: "34.85px 29.63px 48.34px 0px #3366FF0D", _dark: "-15px -22px 48.34px 0px #3366FF0D"}} 
+      overflow="hidden"
     >
-      {/* width="320px" border={{base: "1px solid #e5f4f2", _dark: "1px solid linear-gradient(180deg, #E1F5F2 0%, rgba(0, 96, 231, 0.44) 100%)"}} */}
-      <Card.Body display="flex" maxW="19.375rem" minH="15.75rem" gap="1.875rem" flexDirection="column" justifyContent="center">
+      <Card.Body display="flex" maxW="19.375rem" minH="15.75rem" gap="1.875rem" flexDirection="column" justifyContent="center" alignItems="center">
         <Box w="4rem" h="4rem" borderRadius="10px" p="1.25rem" gap="0.625rem" bg={{base: `${id === 1 ? "#F8D57E33" : id === 2 ? "#CAECCD" : "#D7EAF8"}`, _dark: "#D7EAF8"}} mx="auto" >{icon}</Box>
         <Flex maxW="19.375rem" minH="9.875rem" gap="1.5rem" flexDirection="column">
-          <Card.Title mt="2" w="100%" minH="3.875rem" fontWeight="600" fontSize="1.5rem" lineHeight="1.95rem" textAlign="center">{title}</Card.Title>
-          <Card.Description color={{base: "#2D2D2D", _dark: "#E8ECEF"}} maxW="19.375rem" minH="4.5rem" fontWeight="400" fontSize="1rem" textAlign="center" lineHeight="1.5rem">{desc}</Card.Description>
+          <Card.Title w="100%" minH="4.875rem" fontWeight="600" fontSize="1.5rem" lineHeight="1.95rem" textAlign="center">{title}</Card.Title>
+          <Card.Description color={{base: "#2D2D2D", _dark: "#E8ECEF"}} maxW="19.375rem" minH="4.5rem" fontWeight="400" fontSize="1rem" textAlign="center" lineHeight="1.5rem" overflow="scroll" className="scrollbar">{desc}</Card.Description>
         </Flex>
       </Card.Body>
     </Card.Root>

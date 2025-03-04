@@ -26,7 +26,8 @@ export default function Learning() {
       </Flex>
       {/* Text and image 1 */}
       <Flex flexDirection={{base: "column", lg: "row"}} gap="2rem" position="relative" pr="-2rem"  pb={`${isDesktopOrLaptop || isDesktopOrLaptopTwo ? "2rem" : ".5rem"}`} justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px">
-        <Flex maxW="628px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}}  pl="2rem" px={{base: "2rem", md: "initial"}}>
+        <Flex maxW="628px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}} px="2rem">
+        {/* px={{base: "2rem", md: "initial"}} */}
           {learningList.map((item: any) => {
             return (
               <CustomLearningCard key={item.id} {...item} />
@@ -69,7 +70,7 @@ export default function Learning() {
             </>
           )}
         </Flex>
-        <Flex maxW="628px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}} pr="2rem" px={{base: "2rem", md: "initial"}}>
+        <Flex maxW="628px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}} px="2rem">
           {learningList.map((item: any) => {
             return (
               <CustomLearningCard key={item.id} {...item} />
