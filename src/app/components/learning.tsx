@@ -11,18 +11,20 @@ export default function Learning() {
   return (
     <Box maxW="1440px" minH="2035px" pt="5rem">
       {/* bg={{base: "#F8F9FF", _dark: "#000000"}} */}
-      <Flex position="relative" maxW="1440px" px="-2rem">
-        <Box zIndex="5" position="absolute" maxW="22.115rem" display={{base: "none", lg: "block"}}>
+      <Flex position="relative" maxW="1440px" px="-2rem" mx="auto" justifyContent="flex-start">
+        <Box position="absolute" zIndex="5" display={{base: "none", lg: "flex"}} maxW="22.115rem">
           <Image src="/images/training-shape.png" alt="" />
           {/* maxW="42.115rem" maxW="22.115rem" */}
         </Box>
+      </Flex>
+      <Flex position="relative" maxW="1440px" px="-2rem" mx="auto" justifyContent="center">
         <Box zIndex="5" position="absolute">
           {colorMode === "dark" ? <Image src="/images/training-ellipse-dark.png" alt="" opacity="0.5" /> : <Image src="/images/training-ellipse.png" alt="" />}
         </Box>
       </Flex>
       <Flex flexDirection="column" maxW="100%" minH="132px" gap="1rem" alignItems="center" py={{base: "7.5rem", md: "5.5rem"}}>
         <Text maxW="1260px" minH="60px" fontWeight="600" fontSize="3rem" lineHeight="3.75rem" textAlign="center" color={{base: "#000000", _dark: "#3E90F0"}} mx="auto" zIndex="99">What You Will Learn</Text>
-        <Text maxW="646px" minH="66px" fontWeight="400" fontSize="1.5rem" lineHeight="1.75rem" textAlign="center" color={{base: "#000000", _dark: "#FEFEFE"}} mx="auto" zIndex="99">Master essential technical and soft skills to prepare you for a career in Devops Engineering in 12 weeks.</Text>
+        <Text maxW="746px" minH="66px" fontWeight="400" fontSize="1.5rem" lineHeight="1.75rem" textAlign="center" color={{base: "#000000", _dark: "#FEFEFE"}} mx="auto" zIndex="99">Master essential technical and soft skills to prepare you for a career in Devops Engineering in 12 weeks.</Text>
       </Flex>
       {/* Text and image 1 */}
       <Flex flexDirection={{base: "column", lg: "row"}} gap="2rem" position="relative" pr="-2rem"  pb={`${isDesktopOrLaptop || isDesktopOrLaptopTwo ? "2rem" : ".5rem"}`} justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px">
