@@ -3,42 +3,68 @@ import { IoIosArrowRoundForward } from "react-icons/io"
 import { RiFolder2Line } from "react-icons/ri";
 import { PiMagicWand } from "react-icons/pi";
 import { LuNotepadText } from "react-icons/lu";
+import { useSpring } from '@react-spring/web';
+import { Animated } from "@/externals";
+import { useInView } from 'react-intersection-observer';
 
 export default function Training() {
+  // Use the `useInView` hook to detect when the element is visible
+  const [ref, inView] = useInView({
+    triggerOnce: false, // Trigger every time the element comes into view
+    threshold: 0.2, // Trigger when 20% of the element is visible
+  });
+
+  // Define the animation using `useSpring`
+  const textStyles = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0)' : 'translateY(80px)',
+    config: { mass: 1, tension: 200, friction: 20, duration: 500 },
+    delay: 500,
+  });
+
+  // Define the animation using `useSpring`
+  const boxStyles = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'scale(1)' : 'scale(0.5)',
+    config: { mass: 1, tension: 200, friction: 20, duration: 500 },
+    delay: 500,
+  });
+
   return (
-    <Flex flexDirection="column" maxW="100%" minH="572px" gap="72px" flexWrap="wrap" pt={{base: "0", sm: "10rem", md: "10rem", lg: "0", xl: "3rem"}}>
-      {/* px="5rem" mt={{base: "10rem", md: "5rem"}} pt="5rem" pb="7.75rem"*/}
-      <Flex maxW="100%" w="1274px" minH="136px" flexWrap="wrap" mx="auto" pt={{base: "5rem", md: "auto", lg: "0"}} gap={{base: "1.5rem", md: "0", lg: "6.125rem"}} justifyContent="center">
-      {/* maxW="1274px" */}
-        <Text maxW={{base: "608px", lg: "460px", xl: "608px"}} minH="120px" fontWeight="600" fontSize="3rem" lineHeight="60px" color={{base: "#061C3D", _dark: "#3E90F0"}} textAlign={{base: "center", md: "center", lg: "start"}} mx="auto">Why Choose This Training?</Text>
-      {/* mx={{base: "auto", md: "initial"}} */}
-        <Flex flexDirection="column" maxW={{base: "569px", lg: "480px", xl: "569px"}} minH="136px" gap="24px" alignItems={{base: "center", md: "normal"}} mx="auto" pt={{base: "2rem", lg: "initial"}}>
-          <Text maxW="568px" minH="56px" fontWeight="400" fontSize="20px" lineHeight="28px" color={{base: "#061C3D", _dark:"#FEFEFE"}} textAlign={{base: "center", md: "start"}}>Go from Beginner to Pro with expert mentorship and practical projects in 8 weeks.</Text>
-          <Flex justifyContent="start">
-            <Button
-              bg="#005EDF"
-              p="32px"
-              gap="12px"
-              display="flex"
-              borderRadius="7px"
-              h="56px"
-              w="176px"
-              variant="solid"
-            >
-              <Text color="#FFFFFF" fontWeight="700" fontSize="16px" lineHeight="48px" textAlign="center">Enroll now </Text>
-              <IoIosArrowRoundForward color="#FFFFFF" size="24px" />
-            </Button>
+    <Flex ref={ref} flexDirection="column" maxW="100%" minH="572px" gap="72px" flexWrap="wrap" pt={{base: "0", sm: "10rem", md: "10rem", lg: "0", xl: "3rem"}}>
+      <Animated.Flex style={textStyles} maxW="100%" w="1274px" minH="136px" flexWrap="wrap" mx="auto" pt={{base: "5rem", md: "auto", lg: "0"}} gap={{base: "1.5rem", md: "0", lg: "6.125rem"}} justifyContent="center">
+        {inView ? (
+          <>
+          <Text maxW={{base: "608px", lg: "460px", xl: "608px"}} minH="120px" fontWeight="600" fontSize="3rem" lineHeight="60px" color={{base: "#061C3D", _dark: "#3E90F0"}} textAlign={{base: "center", md: "center", lg: "start"}} mx="auto">Why Choose This Training?</Text>
+          <Flex flexDirection="column" maxW={{base: "569px", lg: "480px", xl: "569px"}} minH="136px" gap="24px" alignItems={{base: "center", md: "normal"}} mx="auto" pt={{base: "2rem", lg: "initial"}}>
+            <Text maxW="568px" minH="56px" fontWeight="400" fontSize="20px" lineHeight="28px" color={{base: "#061C3D", _dark:"#FEFEFE"}} textAlign={{base: "center", md: "start"}}>Go from Beginner to Pro with expert mentorship and practical projects in 12 weeks.</Text>
+            <Flex justifyContent="start">
+              <Button
+                bg="#005EDF"
+                p="32px"
+                gap="12px"
+                display="flex"
+                borderRadius="7px"
+                h="56px"
+                w="176px"
+                variant="solid"
+              >
+                <Text color="#FFFFFF" fontWeight="700" fontSize="16px" lineHeight="48px" textAlign="center">Enroll now </Text>
+                <IoIosArrowRoundForward color="#FFFFFF" size="24px" />
+              </Button>
+            </Flex>
           </Flex>
-        </Flex>
-      </Flex>
+          </>
+        ) : <></>}
+      </Animated.Flex>
       {/* Next category */}
-      <Flex flexDirection={{base: "column", md: "row"}} maxW="1282px" minH="21.875rem" justifyContent={{base: "normal", md: "space-between"}} alignItems={{base: "center", md: "normal"}} flexWrap="wrap" mx="auto" gap="2.5rem" px={{base: "0", md: "1rem", lg: "0"}}>
-        {trainingCard.map((item) => {
+      <Animated.Flex style={boxStyles} flexDirection={{base: "column", md: "row"}} maxW="100%" w="1282px" minH="21.875rem" justifyContent={{base: "normal", md: "space-between"}} alignItems={{base: "center", md: "normal"}} flexWrap="wrap" mx="auto" gap=".5rem" px={{base: "0", md: "1rem", lg: "0"}}>
+        {inView ? trainingCard.map((item) => {
           return (
             <CustomCard key={item.id} {...item} />
           )
-        })}
-      </Flex>
+        }) : <></>}
+      </Animated.Flex>
     </Flex>
   )
 }
@@ -54,9 +80,10 @@ const CustomCard = ({id, icon, title, desc}: {id: number; icon: any; title: stri
       h="21.875rem"
       px="1.25rem" 
       py="2.5rem" 
-      border={{base: "none", _dark: "1px solid" }}
-      borderImage={{base: "initial", _dark: "linear-gradient(180deg, #E1F5F2 0%, rgba(0, 96, 231, 0.44) 100%) 1"}} 
+      border={{base: "none", _dark: "1px solid #E5F4F238" }}
+      // borderImage={{base: "initial", _dark: "linear-gradient(180deg, #E1F5F2 0%, rgba(0, 96, 231, 0.44) 100%) 1"}} 
       boxShadow={{base: "34.85px 29.63px 48.34px 0px #3366FF0D", _dark: "-15px -22px 48.34px 0px #3366FF0D"}} 
+      borderRadius="20px"
       overflow="hidden"
     >
       <Card.Body display="flex" maxW="19.375rem" minH="15.75rem" gap="1.875rem" flexDirection="column" justifyContent="center" alignItems="center">

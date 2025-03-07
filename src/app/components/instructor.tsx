@@ -1,19 +1,48 @@
 import { Box, Flex, Text, Image, Card } from "@chakra-ui/react"
 import { TiSocialTwitter, TiSocialLinkedin } from "react-icons/ti";
 import { FaInstagram } from "react-icons/fa";
+import { useSpring } from '@react-spring/web';
+import { Animated } from "@/externals";
+import { useInView } from 'react-intersection-observer';
 
 export default function Instructor() {
+  // Use the `useInView` hook to detect when the element is visible
+  const [ref, inView] = useInView({
+    triggerOnce: false, // Trigger every time the element comes into view
+    threshold: 0.2, // Trigger when 20% of the element is visible
+  });
+
+  // Define the animation using `useSpring`
+  const textStyles = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0)' : 'translateY(80px)',
+    config: { mass: 1, tension: 200, friction: 20, duration: 500 },
+    delay: 500,
+  });
+
+  // Define the animation using `useSpring`
+  const boxStyles = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'scale(1)' : 'scale(0.5)',
+    config: { mass: 1, tension: 200, friction: 20, duration: 500 },
+    delay: 500,
+  });
+
   return (
-    <Box minH="1009px" bg={{base: "#F8F9FF", _dark: "#000000"}} mx="auto" pt={{base: "2rem", sm: "2rem", md: "5rem"}} >
-      <Flex maxW="1052px" minH="128px" gap="1rem" flexDirection="column" mx="auto" px="1rem">
-        <Text minW={{base: "auto", md: "483px"}} minH="60px" color={{base: "#000000", _dark: "#3E90F0"}} fontWeight="600" fontSize="3rem" lineHeight="3.75rem" textAlign="center">Meet your Instructors</Text>
-        <Text maxW="1052px" minH="52px" fontWeight="400" fontSize="1.125rem" lineHeight="1.625rem" textAlign="center" color={{base: "#2D2D2D", _dark: "#E8ECEF"}}>Our instructors are experienced practitioners who bring years of experience making sure you're learning the most up-to-date and practical skills companies around the world need.</Text>
-      </Flex>
-      <Flex maxW="1146px" minH="581px" gap="1rem" mt="5rem" mx="auto" flexWrap="wrap">
-        {cardBox.map((item: any) => {
+    <Box ref={ref} minH="1009px" bg={{base: "#F8F9FF", _dark: "#000000"}} mx="auto" pt={{base: "2rem", sm: "2rem", md: "5rem"}} >
+      <Animated.Flex style={textStyles} maxW="1052px" minH="128px" gap="1rem" flexDirection="column" mx="auto" px="1rem">
+       {inView ? (
+          <>
+            <Text minW={{base: "auto", md: "483px"}} minH="60px" color={{base: "#000000", _dark: "#3E90F0"}} fontWeight="600" fontSize="3rem" lineHeight="3.75rem" textAlign="center">Meet your Instructors</Text>
+            <Text maxW="1052px" minH="52px" fontWeight="400" fontSize="1.125rem" lineHeight="1.625rem" textAlign="center" color={{base: "#2D2D2D", _dark: "#E8ECEF"}}>Our instructors are experienced practitioners who bring years of experience making sure you're learning the most up-to-date and practical skills companies around the world need.</Text>
+            </>
+       ) : ""}
+      </Animated.Flex>
+      <Animated.Flex style={boxStyles} maxW="1146px" minH="581px" gap="1rem" mt="5rem" mx="auto" flexWrap="wrap">
+        {inView ? cardBox.map((item: any) => {
           return <CustomCard key={item.id} {...item} />
-        })}
-      </Flex>
+        }) : ""}
+      </Animated.Flex>
     </Box>
   )
 }
@@ -24,16 +53,14 @@ export const CustomCard = ({name, title, image}: {name: string; title: string; i
     <Card.Root 
       overflow="hidden" 
       bg={{base: "#FFFFFF", _dark: "#040E11"}} 
-      // border={{base: "1px solid #000000", _dark: "1px solid linear-gradient(180deg, #E1F5F2 0%, rgba(0, 96, 231, 0.44) 100%)"}} 
       gap="9px" 
       borderRadius="20px" 
       w="35.313rem" 
       minH="37.5rem" 
-      py="2.5rem" 
+      pt="2.5rem" 
       boxShadow={{base: "none", _dark: "34.85px 29.63px 48.34px 0px #3366FF0D"}} 
       mx="auto"
-      border={{base: "none", _dark: "1px solid" }}
-      borderImage={{base: "initial", _dark: "linear-gradient(180deg, #E1F5F2 0%, rgba(0, 96, 231, 0.44) 100%) 1"}} 
+      border={{base: "none", _dark: "1px solid #6C72753D" }}
     >
       {/* h="581px" */}
       <Image
@@ -42,7 +69,7 @@ export const CustomCard = ({name, title, image}: {name: string; title: string; i
         w="533px"
         h="381px"
         borderRadius="20px"
-        border="7px solid #6C72753D"
+        // border="7px solid #6C72753D"
         boxShadow="34.85px 29.63px 48.34px 0px #3366FF0D"
         mx="auto"
       />
@@ -72,12 +99,6 @@ export const CustomCard = ({name, title, image}: {name: string; title: string; i
 const cardBox = [
   {
     id: 1,
-    name: "Mayowa Omotunde",
-    title: "DevOps Engineer",
-    image: "/images/instructor-image.jpeg",
-  },
-  {
-    id: 2,
     name: "Mayowa Omotunde",
     title: "DevOps Engineer",
     image: "/images/instructor-image.jpeg",

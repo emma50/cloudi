@@ -1,12 +1,37 @@
 import { Box, Flex, Text, Card, HStack, Stack } from "@chakra-ui/react"
 import { Avatar } from "@/components/ui/avatar"
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
+import { useSpring } from '@react-spring/web';
+import { Animated } from "@/externals";
+import { useInView } from 'react-intersection-observer';
 
 export default function Testimonials() {
+  // Use the `useInView` hook to detect when the element is visible
+  const [ref, inView] = useInView({
+    triggerOnce: false, // Trigger every time the element comes into view
+    threshold: 0.2, // Trigger when 20% of the element is visible
+  });
+
+  // Define the animation using `useSpring`
+  const textStyles = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0)' : 'translateY(80px)',
+    config: { mass: 1, tension: 200, friction: 20, duration: 500 },
+    delay: 500,
+  });
+
+  // Define the animation using `useSpring`
+  const boxStyles = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'scale(1)' : 'scale(0.5)',
+    config: { mass: 1, tension: 200, friction: 20, duration: 500 },
+    delay: 500,
+  });
+
   return (
-    <Box minH="625px" color={{base: "#FFFFFF", _dark: "#000000"}} mt="5rem">
+    <Box ref={ref} minH="625px" color={{base: "#FFFFFF", _dark: "#000000"}} mt="5rem">
       <Flex minH="465px" gap="72px" flexDirection="column">
-        <Flex flexDirection={{base: "column", lg: "row"}} maxW="1280px" minH="100px" gap={{base: "4rem", lg: "34.313rem"}} ml={{base: "auto", md: "80px"}}>
+        <Animated.Flex style={textStyles} flexDirection={{base: "column", lg: "row"}} maxW="1280px" minH="100px" gap={{base: "4rem", lg: "34.313rem"}} ml={{base: "auto", md: "80px"}}>
           <Flex maxW="587px" minH="100px" gap="16px" flexDirection="column">
             <Text maxW="536px" minH="60px" fontWeight="700" fontSize="3.5rem" lineHeight="60px" color={{base: "#061C3D", _dark: "#005EDF"}} textAlign="start">Success Stories</Text>
             <Text maxW="587px" minH="24px" fontWeight="400" fontSize="20px" lineHeight="24.2px" color={{base: "#061C3D", _dark: "#FEFEFE"}} textAlign="start">What our students are saying about their learning experience.</Text>
@@ -19,14 +44,24 @@ export default function Testimonials() {
               <IoIosArrowRoundForward size="32px" color="#F0F5FF"/>
             </Box>
           </Flex>
-        </Flex>
-        <Flex flexDirection={{base: "column", md: "row"}} maxW="1320px" minH="293px" gap="1rem" flexWrap="wrap" mx="auto">
-          {customCard.map((item: any) => {
+        </Animated.Flex>
+        <Animated.Flex 
+          style={boxStyles}
+          flexDirection={{base: "column", md: "row"}} 
+          // maxW="1320px" 
+          maxW="1440px"
+          minH="293px" 
+          gap="2rem"
+          flexWrap={{base: "wrap", lg: "nowrap"}} 
+          mx={{base: "auto", lg: "initial"}}
+          ml={{base: "auto", lg: "-200px"}}
+        >
+          {inView ? customCard.map((item: any) => {
             return (
               <TestimonialCard key={item.id} {...item} />
             )
-          })}
-        </Flex>
+          }) : ""}
+        </Animated.Flex>
       </Flex>
     </Box>
   )
@@ -68,6 +103,12 @@ const customCard = [
   },
   {
     id: 3,
+    image: "/images/testimonial-image.png",
+    name: "Michelle Akinyemi",
+    desc: "My decision to enroll in software engineering classes was undoubtedly one of the best I have made. The course content was comprehensive, and our instructors guidance were invaluable in helping me grasp complex concepts.",
+  },
+  {
+    id: 4,
     image: "/images/testimonial-image.png",
     name: "Michelle Akinyemi",
     desc: "My decision to enroll in software engineering classes was undoubtedly one of the best I have made. The course content was comprehensive, and our instructors guidance were invaluable in helping me grasp complex concepts.",

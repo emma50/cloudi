@@ -13,7 +13,7 @@ const NavBar = (props: any) => {
   return (
     <NavBarContainer {...props}>
       <Flex w={{base: "100%", lg: "50%", xl: "initial"}} justifyContent="space-between" pr={{base: "initial", lg: ".2rem", xl: "2rem" }} pl={{base: "initial", lg: "0", xl: "4rem"}}>
-        <Flex>
+        <Flex gap="2rem">
           {colorMode !== "dark" ? <Image src="/images/cloudi.png" /> : <Image src="/images/cloudi-white.png" />}
           <HStack gap="4" display={{base: "none", lg: "flex"}} pl={{base: "2rem", lg: ".2rem", xl: "2rem"}}>
             <Separator variant="solid" color="#E6E8EC" size="lg" w="20px" orientation="vertical" height="40px" />
