@@ -10,37 +10,55 @@ export default function Learning() {
   const isDesktopOrLaptopTwo = useMediaQuery({ minWidth: 1144, maxWidth: 1296 })
 
   // Use the `useInView` hook to detect when the element is visible
-  const [ref, inView] = useInView({
+  const [ref1, inView1] = useInView({
+    triggerOnce: false, // Trigger every time the element comes into view
+    threshold: 0.2, // Trigger when 20% of the element is visible
+  });
+
+  // Use the `useInView` hook to detect when the element is visible
+  const [ref2, inView2] = useInView({
+    triggerOnce: false, // Trigger every time the element comes into view
+    threshold: 0.4, // Trigger when 40% of the element is visible
+  });
+
+  // Use the `useInView` hook to detect when the element is visible
+  const [ref3, inView3] = useInView({
+    triggerOnce: false, // Trigger every time the element comes into view
+    threshold: 0.4, // Trigger when 40% of the element is visible
+  });
+
+  // Use the `useInView` hook to detect when the element is visible
+  const [ref4, inView4] = useInView({
     triggerOnce: false, // Trigger every time the element comes into view
     threshold: 0.2, // Trigger when 20% of the element is visible
   });
 
   // Define the animation using `useSpring`
   const textStyles = useSpring({
-    opacity: inView ? 1 : 0,
-    transform: inView ? 'translateY(0)' : 'translateY(80px)',
+    opacity: inView1 || inView4 ? 1 : 0,
+    transform: inView1 || inView4 ? 'translateY(0)' : 'translateY(80px)',
     config: { mass: 1, tension: 200, friction: 20, duration: 500 },
     delay: 500,
   });
 
   // Define the animation using `useSpring`
   const boxStyles = useSpring({
-    opacity: inView ? 1 : 0,
-    transform: inView ? 'scale(1)' : 'scale(0.5)',
+    opacity: inView2 || inView3 || inView4 ? 1 : 0,
+    transform: inView2 || inView3 || inView4 ? 'scale(1)' : 'scale(0.5)',
     config: { mass: 1, tension: 200, friction: 20, duration: 500 },
     delay: 500,
   });
 
   return (
     <Box maxW="1440px" minH="2035px" pt="5rem" position="relative">
-      <Flex ref={ref} flexDirection="column" maxW="100%" minH="132px" gap="1rem" alignItems="center" py={{base: "7.5rem", md: "5.5rem"}}>
-        <Animated.Text style={textStyles} maxW="1260px" minH="60px" fontWeight="600" fontSize="3rem" lineHeight="3.75rem" textAlign="center" color={{base: "#000000", _dark: "#3E90F0"}} mx="auto" zIndex="99">{inView ? "What You Will Learn" : ""}</Animated.Text>
-        <Animated.Text style={textStyles} maxW="746px" minH="66px" fontWeight="400" fontSize="1.5rem" lineHeight="1.75rem" textAlign="center" color={{base: "#000000", _dark: "#FEFEFE"}} mx="auto" zIndex="99">{inView ? "Master essential technical and soft skills to prepare you for a career in Devops Engineering in 12 weeks." : ""}</Animated.Text>
+      <Flex ref={ref1} flexDirection="column" maxW="100%" minH="132px" gap="1rem" alignItems="center" py={{base: "7.5rem", md: "5.5rem"}}>
+        <Animated.Text style={textStyles} maxW="1260px" minH="60px" fontWeight="600" fontSize="3rem" lineHeight="3.75rem" textAlign="center" color={{base: "#000000", _dark: "#3E90F0"}} mx="auto" zIndex="99">{inView1 ? "What You Will Learn" : ""}</Animated.Text>
+        <Animated.Text style={textStyles} maxW="746px" minH="66px" fontWeight="400" fontSize="1.5rem" lineHeight="1.75rem" textAlign="center" color={{base: "#000000", _dark: "#FEFEFE"}} mx="auto" zIndex="99">{inView1 ? "Master essential technical and soft skills to prepare you for a career in Devops Engineering in 12 weeks." : ""}</Animated.Text>
       </Flex>
       {/* Text and image 1 */}
-      <Flex ref={ref} flexDirection={{base: "column", lg: "row"}} position="relative" pr="-2rem"  pb={`${isDesktopOrLaptop || isDesktopOrLaptopTwo ? "2rem" : ".5rem"}`} justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px">
+      <Flex ref={ref2} flexDirection={{base: "column", lg: "row"}} position="relative" pr="-2rem"  pb={`${isDesktopOrLaptop || isDesktopOrLaptopTwo ? "2rem" : ".5rem"}`} justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px">
         <Animated.Flex style={boxStyles} maxW="828px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}} px="2rem" zIndex="20">
-          {inView ? learningList.map((item: any) => {
+          {inView2 ? learningList.map((item: any) => {
             return (
               <CustomLearningCard key={item.id} {...item} />
             )
@@ -51,15 +69,17 @@ export default function Learning() {
           position="relative" 
           alignSelf={{base: "initial", xl: "start" }}
           justifySelf="start"
-          mt={{base: "initial", md: "initial", lg: "initial", xl: "-240px"}}
+          mt={{base: "initial", md: "initial", lg: "initial", xl: "initial"}}
+          bg="red"
         >
-          {inView ? (
-            <Image src="/images/training-image-1.png" w="inherit" alt="" mt={{base: "-200px", sm: "-300px",  md: "", lg: "-70px", xl: "-70px"}}/>
+          {/* xl: "-240px" */}
+          {inView2 ? (
+            <Image src="/images/training-image-1.png" w="inherit" alt="" mt={{base: "-200px", sm: "-300px",  md: "", lg: "-70px"}} bg="blue"/>
           ) : ""}
         </Animated.Flex>
       </Flex>
       {/* Text and image 2 */}
-      <Flex ref={ref} flexDirection={{base: "column", lg: "row"}} gap="2rem" position="relative" pr="-2rem" justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px">
+      <Flex ref={ref3} flexDirection={{base: "column", lg: "row"}} gap="2rem" position="relative" pr="-2rem" justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px">
         <Animated.Flex 
           style={boxStyles}
           position="relative" 
@@ -67,12 +87,12 @@ export default function Learning() {
           alignSelf={{base: "initial", xl: "center" }}
           pt={{base: "2rem", md: "initial", lg: "6rem", xl: "initial"}}
         >
-          {inView ? (
+          {inView3 ? (
             <Image src="/images/training-image-2-new.png" w="inherit" alt="" maxWidth="100%" />
           ) : ""}
         </Animated.Flex>
         <Animated.Flex style={boxStyles} maxW="628px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}} px="2rem">
-          {inView ? learningListTwo.map((item: any) => {
+          {inView3 ? learningListTwo.map((item: any) => {
             return (
               <CustomLearningCard key={item.id} {...item} />
             )
@@ -80,14 +100,18 @@ export default function Learning() {
         </Animated.Flex>
       </Flex>
       {/* --------------------------------------------------------------- */}
-      <Flex ref={ref} maxW="1344px" minH="488px" gap="5rem" m={{base: "auto", md: "3.063rem"}} flexDirection="column" mt={{base: "6rem", lg: "8rem", xl: "6rem"}}>
+      <Flex ref={ref4} maxW="1344px" minH="488px" gap="5rem" m={{base: "auto", md: "3.063rem"}} flexDirection="column" mt={{base: "6rem", lg: "8rem", xl: "6rem"}}>
         <Animated.Flex style={textStyles} maxW="1260px" minH="132px" gap="1rem" flexDirection="column">
-          <Text maxW="1260px" minH="60px" fontWeight="500" fontSize="3rem" lineHeight="3.75rem" textAlign="center" color={{base: "#000000", _dark: "#3E90F0"}}>Our Payment Options</Text>
-          <Text maxW="648px" minH="56px" fontWeight="400" fontSize="1.25rem" lineHeight="1.75rem" textAlign="center" color={{base: "#000000", _dark: "#FEFEFE"}} mx="auto">Master essential technical and soft skills to prepare you for a career in DevOps Engineering in 12 weeks.</Text>
+          {inView4 ? (
+            <>
+              <Text maxW="1260px" minH="60px" fontWeight="500" fontSize="3rem" lineHeight="3.75rem" textAlign="center" color={{base: "#000000", _dark: "#3E90F0"}}>Our Payment Options</Text>
+              <Text maxW="648px" minH="56px" fontWeight="400" fontSize="1.25rem" lineHeight="1.75rem" textAlign="center" color={{base: "#000000", _dark: "#FEFEFE"}} mx="auto">Master essential technical and soft skills to prepare you for a career in DevOps Engineering in 12 weeks.</Text>
+            </>
+          ) : ""}
         </Animated.Flex>
         <Animated.Flex style={boxStyles} flexDirection={{base: "column", md: "row"}} maxW="1344px" minH="276px" justifyContent={{base: "initial", md: "space-between"}} flexWrap="wrap" gap="1rem" px={{base: "1rem", md: "initial"}}>
           {/* Payment methods */}
-          {inView ? paymentMethods.map((item: any) => {
+          {inView4 ? paymentMethods.map((item: any) => {
             return (
               <CustomCard key={item.id} {...item} />
             )
