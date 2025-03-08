@@ -58,7 +58,7 @@ export default function Training() {
         ) : <></>}
       </Animated.Flex>
       {/* Next category */}
-      <Animated.Flex style={boxStyles} flexDirection={{base: "column", md: "row"}} maxW="100%" w="1282px" minH="21.875rem" justifyContent={{base: "normal", md: "space-between"}} alignItems={{base: "center", md: "normal"}} flexWrap="wrap" mx="auto" gap=".5rem" px={{base: "0", md: "1rem", lg: "0"}}>
+      <Animated.Flex style={boxStyles} flexDirection={{base: "column", md: "row"}} maxW="100%" w="1282px" minH="21.875rem" justifyContent={{base: "normal", md: "space-evenly"}} alignItems={{base: "center", md: "normal"}} flexWrap="wrap" mx="auto" gap="2rem" px={{base: "0", md: "1rem", lg: "0"}}>
         {inView ? trainingCard.map((item) => {
           return (
             <CustomCard key={item.id} {...item} />
@@ -76,7 +76,7 @@ const CustomCard = ({id, icon, title, desc}: {id: number; icon: any; title: stri
       bg={{base: "#FBFDFF", _dark: "#0A0A0A"}} 
       maxW="23.125rem" 
       minH="21.875rem"
-      w="20.125rem" 
+      w={{base: "18.125rem", md: "22.125rem"}} 
       h="21.875rem"
       px="1.25rem" 
       py="2.5rem" 
