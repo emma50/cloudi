@@ -1,7 +1,7 @@
-import { Box, Flex, Text, Image, Card } from "@chakra-ui/react"
+import { Box, Flex, Text, Image, Card, SimpleGrid } from "@chakra-ui/react"
 import { GoPackage } from "react-icons/go";
 import { useMediaQuery } from 'react-responsive'
-import { useSpring } from '@react-spring/web';
+import { useSpring, useTrail } from '@react-spring/web';
 import { Animated } from "@/externals";
 import { useInView } from 'react-intersection-observer';
 
@@ -57,28 +57,31 @@ export default function Learning() {
       </Flex>
       {/* Text and image 1 */}
       <Flex ref={ref2} flexDirection={{base: "column", lg: "row"}} position="relative" pr="-2rem"  pb={`${isDesktopOrLaptop || isDesktopOrLaptopTwo ? "2rem" : ".5rem"}`} justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px">
-        <Animated.Flex style={boxStyles} maxW="828px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}} px="2rem" zIndex="20">
-          {inView2 ? learningList.map((item: any) => {
+        <Flex maxW="828px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}} px="2rem" zIndex="20">
+          {/* Animated.Flex style={boxStyles} */}
+          <CustomLearningCardOne />
+          {/* {inView2 ? learningList.map((item: any) => {
             return (
               <CustomLearningCard key={item.id} {...item} />
             )
-          }) : ""}
-        </Animated.Flex>
+          }) : ""} */}
+        </Flex>
         <Animated.Flex
           style={boxStyles}
           position="relative" 
           alignSelf={{base: "initial", xl: "start" }}
           justifySelf="start"
-          mt={{base: "initial", md: "initial", lg: "initial", xl: "initial"}}
+          mt={{base: "initial", md: "initial", lg: "initial", xl: "-240px"}}
+          pl={{base: "2rem", md: "0"}}
         >
           {/* xl: "-240px" */}
           {inView2 ? (
-            <Image src="/images/training-image-1.png" w="inherit" alt="" mt={{base: "-200px", sm: "-300px",  md: "", lg: "-70px"}}/>
+            <Image src="/images/training-image-1.png" w="100%" h="auto" alt="" mt={{base: "-200px", sm: "-300px",  md: "", lg: "-70px"}}/>
           ) : ""}
         </Animated.Flex>
       </Flex>
       {/* Text and image 2 */}
-      <Flex ref={ref3} flexDirection={{base: "column", lg: "row"}} gap="2rem" position="relative" pr="-2rem" justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px">
+      <Flex ref={ref3} flexDirection={{base: "column", lg: "row"}} gap="2rem" position="relative" pr="-2rem" justifyContent={{base: "initial", lg: "space-between"}} alignItems={{base: "center", lg: "initial"}} minH="708px" top={{base: "initial", xl: "0"}}>
         <Animated.Flex 
           style={boxStyles}
           position="relative" 
@@ -88,15 +91,16 @@ export default function Learning() {
         >
           {inView3 ? (
             <Image src="/images/training-image-2-new.png" w="inherit" alt="" maxWidth="100%" />
-          ) : ""}
-        </Animated.Flex>
-        <Animated.Flex style={boxStyles} maxW="628px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}} px="2rem">
-          {inView3 ? learningListTwo.map((item: any) => {
+          ) : ""}        </Animated.Flex>
+        <Flex maxW="828px" minH="708px" gap="1.5rem" flexDirection="column" alignItems={{base: "center", lg: "initial"}} px="2rem">
+          {/* Animated.Flex style={boxStyles} */}
+          <CustomLearningCardTwo />
+          {/* {inView3 ? learningListTwo.map((item: any) => {
             return (
               <CustomLearningCard key={item.id} {...item} />
             )
-          }) : <></>}
-        </Animated.Flex>
+          }) : <></>} */}
+        </Flex>
       </Flex>
       {/* --------------------------------------------------------------- */}
       <Flex ref={ref4} maxW="1344px" minH="488px" gap="5rem" m={{base: "auto", md: "3.063rem"}} flexDirection="column" mt={{base: "6rem", lg: "8rem", xl: "6rem"}}>
@@ -108,7 +112,7 @@ export default function Learning() {
             </>
           ) : ""}
         </Animated.Flex>
-        <Animated.Flex style={boxStyles} flexDirection={{base: "column", md: "row"}} maxW="1344px" minH="276px" justifyContent={{base: "initial", md: "space-between"}} flexWrap="wrap" gap="1rem" px={{base: "1rem", md: "initial"}}>
+        <Animated.Flex style={boxStyles} flexDirection={{base: "column", md: "row"}} maxW="1344px" minH="276px" justifyContent={{base: "initial", md: "space-between"}} flexWrap="wrap" gap="1rem" px={{base: "1.5rem", md: "initial"}}>
           {/* Payment methods */}
           {inView4 ? paymentMethods.map((item: any) => {
             return (
@@ -121,76 +125,189 @@ export default function Learning() {
   )
 }
 
+const CustomLearningCardOne = () => {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+
+  // Use `useTrail` to animate an array of items
+  const trail = useTrail(learningList.length, {
+    // from: { opacity: 0, transform: 'translateY(50px)' },
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'scale(1)' : 'scale(0.5)',
+    config: { mass: 1, tension: 200, friction: 20 },
+    delay: inView ? 200 : 0,
+  });
+
+  return (
+    <Box ref={ref} p={8}>
+      <SimpleGrid columns={{ base: 1 }} gap="1.5rem">
+        {trail.map((styles, index) => (
+           <Animated.Box style={styles} >
+            <Card.Root 
+              maxW="100%" 
+              w="100%"
+              minH="200px" 
+              borderRadius="1.25rem" 
+              border={{base: "none", _dark: "1px solid #E5F4F238"}}
+              boxShadow={{base: "none", _dark: "34.85px 29.63px 48.34px 0px #3366FF0D"}} 
+            >
+              <Card.Body 
+                gap="1.5rem" 
+                maxW="100%" 
+                minH="100%" 
+                display="flex"
+                flexDirection={{base: "column", md: "row"}}
+                alignItems={{base: "initial", md: "center"}}
+              >
+                <Flex 
+                  maxW="4.75rem" 
+                  maxH="4.75rem"
+                  p="1.25rem" 
+                  gap="10px" 
+                  borderRadius="8px"
+                  bg={{base: " #AEC6EA80", _dark: "#333333"}} 
+                  alignSelf={{base: "center", md: "flex-start"}}
+                  mt={{base: "initial", md: "1rem"}}
+                >
+                  {learningList[index].icon}
+                </Flex>
+                <Flex 
+                  maxW="649px" 
+                  minH="120px" 
+                  gap="1.25rem" 
+                  flexDirection="column" 
+                >
+                  <Card.Title maxW="649px" minH="32px" fontWeight="600" fontSize="1.5rem" lineHeight="2rem" color={{base: "#333333", _dark: "#F3F5F7"}}>{learningList[index].title}</Card.Title>
+                  <Card.Description maxW="449px" minH="76px" fontWeight="400" fontSize="1rem" lineHeight="1.5rem" color={{base: "#333333", _dark: "#F3F5F7"}}>{learningList[index].desc}</Card.Description>
+                </Flex>
+              </Card.Body>
+            </Card.Root>
+          </Animated.Box>    
+        ))}
+      </SimpleGrid>
+    </Box>
+  )
+}
+
+const CustomLearningCardTwo = () => {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+
+  // Use `useTrail` to animate an array of items
+  const trail = useTrail(learningListTwo.length, {
+    // from: { opacity: 0, transform: 'translateY(50px)' },
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'scale(1)' : 'scale(0.5)',
+    config: { mass: 1, tension: 200, friction: 20 },
+    delay: inView ? 200 : 0,
+  });
+
+  return (
+    <Box ref={ref} p={8}>
+      <SimpleGrid columns={{ base: 1 }} gap="1.5rem">
+        {trail.map((styles, index) => (
+           <Animated.Box style={styles} >
+            <Card.Root 
+              maxW="100%" 
+              w="100%"
+              minH="200px" 
+              borderRadius="1.25rem" 
+              border={{base: "none", _dark: "1px solid #E5F4F238"}}
+              boxShadow={{base: "none", _dark: "34.85px 29.63px 48.34px 0px #3366FF0D"}} 
+            >
+              <Card.Body 
+                gap="1.5rem" 
+                maxW="100%" 
+                minH="100%" 
+                display="flex"
+                flexDirection={{base: "column", md: "row"}}
+                alignItems={{base: "initial", md: "center"}}
+              >
+                <Flex 
+                  maxW="4.75rem" 
+                  maxH="4.75rem"
+                  p="1.25rem" 
+                  gap="10px" 
+                  borderRadius="8px"
+                  bg={{base: " #AEC6EA80", _dark: "#333333"}} 
+                  alignSelf={{base: "center", md: "flex-start"}}
+                  mt={{base: "initial", md: "1rem"}}
+                >
+                  {learningListTwo[index].icon}
+                </Flex>
+                <Flex 
+                  maxW="649px" 
+                  minH="120px" 
+                  gap="1.25rem" 
+                  flexDirection="column" 
+                >
+                  <Card.Title maxW="649px" minH="32px" fontWeight="600" fontSize="1.5rem" lineHeight="2rem" color={{base: "#333333", _dark: "#F3F5F7"}}>{learningListTwo[index].title}</Card.Title>
+                  <Card.Description maxW="449px" minH="76px" fontWeight="400" fontSize="1rem" lineHeight="1.5rem" color={{base: "#333333", _dark: "#F3F5F7"}}>{learningListTwo[index].desc}</Card.Description>
+                </Flex>
+              </Card.Body>
+            </Card.Root>
+          </Animated.Box>    
+        ))}
+      </SimpleGrid>
+    </Box>
+  )
+}
+
 const CustomCard = ({id, title, amount, desc}: {id: number; title: string; amount: string; desc: string;}) => {
   return (
-    <Card.Root maxW={{base: "600px", xl: "710px"}} overflow="hidden" minW="252px" minH="276px" borderRadius="20px" bg={{base: `${id === 1 ? "#005EDF" : "#FEFEFE"}`, _dark: `${id === 1 ? "#005EDF" : "#0A0A0A"}`}} border={{base: "none", _dark: `${id !== 1 ? "1px solid #3E90F0" : "none"}`}}>
-      <Card.Body gap="4px" minW="252px" minH="124px" py="1.5rem" px="1.75rem">
-        <Card.Title minW="209px" minH="60px" fontWeight="400" fontSize="2.25rem" lineHeight="3.75rem" textAlign="start" color={{base: `${id === 1 ? "#ffffff" : "#000000"}`, _dark: "#ffffff"}}>{title}</Card.Title>
+    <Card.Root maxW={{base: "600px", xl: "710px"}} overflow="hidden" minW="160px" minH="276px" borderRadius="20px" bg={{base: `${id === 1 ? "#005EDF" : "#FEFEFE"}`, _dark: `${id === 1 ? "#005EDF" : "#0A0A0A"}`}} border={{base: "none", _dark: `${id !== 1 ? "1px solid #3E90F0" : "none"}`}}>
+      <Card.Body gap="4px" minW="180px" minH="124px" py="1.5rem" px="1.75rem">
+        <Card.Title minW="160px" minH="60px" fontWeight="400" fontSize="2.25rem" lineHeight="3.75rem" textAlign="start" color={{base: `${id === 1 ? "#ffffff" : "#000000"}`, _dark: "#ffffff"}}>{title}</Card.Title>
         <Text minW="139px" maxW={{base: "440px", sm: "512px"}} minH="60px" fontWeight="600" fontSize="2.5rem" lineHeight="3.75rem" textAlign="start" color={{base: `${id === 1 ? "#ffffff" : "#000000"}`, _dark: "#ffffff"}}>
           {amount}
         </Text>
         <Card.Description pt="2rem" maxW={{base: "440px", lg: "512px", xl: "582px"}} minH="72px" fontWeight="400" fontSize="1.5rem" lineHeight="2.25rem" textAlign="start" color={{base: `${id === 1 ? "#ffffff" : "#000000"}`, _dark: "#ffffff"}} pr="1.75rem">{desc}</Card.Description>
       </Card.Body>
-      {/* <Card.Footer gap="2">
-        <Text></Text>
-      </Card.Footer> */}
     </Card.Root>
   )
 }
 
-const CustomLearningCard = ({icon, title, desc}: {icon: any; title: string; desc: string;}) => {
-  return (
-    <Card.Root 
-      maxW="100%" 
-      w="100%"
-      minH="200px" 
-      // h="200px"
-      borderRadius="1.25rem" 
-      // py="2.5rem" 
-      // px="1.875rem" 
-      // gap="2rem" 
-      border={{base: "none", _dark: "1px solid #E5F4F238"}}
-      // bg={{base: "transparent", _dark: "#0A0A0A"}} 
-      boxShadow={{base: "none", _dark: "34.85px 29.63px 48.34px 0px #3366FF0D"}} 
-    >
-      <Card.Body 
-        gap="1.5rem" 
-        maxW="100%" 
-        minH="100%" 
-        display="flex"
-        flexDirection={{base: "column", md: "row"}}
-        alignItems={{base: "initial", md: "center"}}
-      >
-        {/* maxW="549px" */}
-        <Flex 
-          maxW="4.75rem" 
-          maxH="4.75rem"
-          p="1.25rem" 
-          gap="10px" 
-          borderRadius="8px"
-          bg={{base: " #AEC6EA80", _dark: "#333333"}} 
-          // justifyContent="center" 
-          // alignItems="center" 
-          alignSelf={{base: "center", md: "flex-start"}}
-          mt={{base: "initial", md: "1rem"}}
-        >
-          {icon}
-        </Flex>
-        <Flex 
-          maxW="649px" 
-          minH="120px" 
-          gap="1.25rem" 
-          flexDirection="column" 
-          // bg="red"
-        >
-          {/* gap="0.75rem" */}
-          <Card.Title maxW="649px" minH="32px" fontWeight="600" fontSize="1.5rem" lineHeight="2rem" color={{base: "#333333", _dark: "#F3F5F7"}}>{title}</Card.Title>
-          <Card.Description maxW="449px" minH="76px" fontWeight="400" fontSize="1rem" lineHeight="1.5rem" color={{base: "#333333", _dark: "#F3F5F7"}}>{desc}</Card.Description>
-        </Flex>
-      </Card.Body>
-    </Card.Root>
-  )
-}
+// const CustomLearningCard = ({icon, title, desc}: {icon: any; title: string; desc: string;}) => {
+//   return (
+//     <Card.Root 
+//       maxW="100%" 
+//       w="100%"
+//       minH="200px" 
+//       borderRadius="1.25rem" 
+//       border={{base: "none", _dark: "1px solid #E5F4F238"}}
+//       boxShadow={{base: "none", _dark: "34.85px 29.63px 48.34px 0px #3366FF0D"}} 
+//     >
+//       <Card.Body 
+//         gap="1.5rem" 
+//         maxW="100%" 
+//         minH="100%" 
+//         display="flex"
+//         flexDirection={{base: "column", md: "row"}}
+//         alignItems={{base: "initial", md: "center"}}
+//       >
+//         <Flex 
+//           maxW="4.75rem" 
+//           maxH="4.75rem"
+//           p="1.25rem" 
+//           gap="10px" 
+//           borderRadius="8px"
+//           bg={{base: " #AEC6EA80", _dark: "#333333"}} 
+//           alignSelf={{base: "center", md: "flex-start"}}
+//           mt={{base: "initial", md: "1rem"}}
+//         >
+//           {icon}
+//         </Flex>
+//         <Flex 
+//           maxW="649px" 
+//           minH="120px" 
+//           gap="1.25rem" 
+//           flexDirection="column" 
+//         >
+//           <Card.Title maxW="649px" minH="32px" fontWeight="600" fontSize="1.5rem" lineHeight="2rem" color={{base: "#333333", _dark: "#F3F5F7"}}>{title}</Card.Title>
+//           <Card.Description maxW="449px" minH="76px" fontWeight="400" fontSize="1rem" lineHeight="1.5rem" color={{base: "#333333", _dark: "#F3F5F7"}}>{desc}</Card.Description>
+//         </Flex>
+//       </Card.Body>
+//     </Card.Root>
+//   )
+// }
 
 
 

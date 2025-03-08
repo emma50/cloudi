@@ -51,11 +51,12 @@ export default function Testimonials() {
           // maxW="1320px" 
           maxW="1440px"
           minH="293px" 
-          gap="2rem"
+          gap="2.5rem"
           flexWrap={{base: "wrap", lg: "nowrap"}} 
           mx={{base: "auto", lg: "initial"}}
-          ml={{base: "auto", lg: "-200px"}}
+          ml={{base: "auto", lg: "-100px"}}
         >
+          {/* lg: "-200px" */}
           {inView ? customCard.map((item: any) => {
             return (
               <TestimonialCard key={item.id} {...item} />
@@ -69,8 +70,9 @@ export default function Testimonials() {
 
 export const TestimonialCard = ({image, name, desc}: {image: string; name: string; desc: string}) => {
   return (
-    <Card.Root maxW="26.5rem" minH="18.313rem" borderRadius="24px" bg="#005EDF">
-      <Card.Body maxW="21.5rem" minH="13.75rem" gap="1rem" py="2.5rem" px="2.063rem">
+    <Card.Root maxW="1000px" width="1000px" minH="18.313rem" borderRadius="24px" bg="#005EDF">
+      {/* maxW="26.5rem" width="26.5rem" */}
+      <Card.Body maxW="26.5rem" w="100%" minH="13.75rem" gap="1rem" py="2.5rem" px="2.063rem">
         <HStack maxW="12.375rem" minH="48px" gap="0.75rem">
           <Avatar
             src={image}
@@ -82,7 +84,7 @@ export const TestimonialCard = ({image, name, desc}: {image: string; name: strin
             <Text fontWeight="500" fontSize="1rem" lineHeight="1.5rem" color="#FEFEFE">{name}</Text>
           </Stack>
         </HStack>
-        <Card.Description fontWeight="400" fontSize="1.125rem" lineHeight="1.625rem" color="#FEFEFE">{desc}</Card.Description>
+        <Card.Description maxW="26.5rem" fontWeight="400" fontSize="1.125rem" lineHeight="1.625rem" color="#FEFEFE">{desc}</Card.Description>
       </Card.Body>
     </Card.Root>
   )
