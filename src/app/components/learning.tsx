@@ -110,7 +110,7 @@ export default function Learning() {
           style={boxStyles}
           position="relative" 
           alignSelf={{base: "initial", xl: "center" }}
-          pt={{base: "2rem", md: "initial", lg: "6rem", xl: "initial"}}
+          mt={{base: "2rem", md: "initial", lg: "-50px", xl: "-180px"}}
         >
           {inView3 ? (
             <Image src="/images/training-image-2-new.png" w="inherit" alt="" maxWidth="100%" />
