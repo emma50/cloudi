@@ -70,11 +70,10 @@ export default function Learning() {
           alignSelf={{base: "initial", xl: "start" }}
           justifySelf="start"
           mt={{base: "initial", md: "initial", lg: "initial", xl: "initial"}}
-          bg="red"
         >
           {/* xl: "-240px" */}
           {inView2 ? (
-            <Image src="/images/training-image-1.png" w="inherit" alt="" mt={{base: "-200px", sm: "-300px",  md: "", lg: "-70px"}} bg="blue"/>
+            <Image src="/images/training-image-1.png" w="inherit" alt="" mt={{base: "-200px", sm: "-300px",  md: "", lg: "-70px"}}/>
           ) : ""}
         </Animated.Flex>
       </Flex>
