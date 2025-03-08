@@ -1,7 +1,7 @@
-import { Box, Flex, Text, Card, HStack, Stack } from "@chakra-ui/react"
+import { Box, Flex, Text, Card, HStack, Stack, SimpleGrid, Grid } from "@chakra-ui/react"
 import { Avatar } from "@/components/ui/avatar"
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
-import { useSpring } from '@react-spring/web';
+import { useSpring, useTrail } from '@react-spring/web';
 import { Animated } from "@/externals";
 import { useInView } from 'react-intersection-observer';
 
@@ -9,7 +9,7 @@ export default function Testimonials() {
   // Use the `useInView` hook to detect when the element is visible
   const [ref, inView] = useInView({
     triggerOnce: false, // Trigger every time the element comes into view
-    threshold: 0.2, // Trigger when 20% of the element is visible
+    // threshold: 0.2, // Trigger when 20% of the element is visible
   });
 
   // Define the animation using `useSpring`
@@ -21,17 +21,17 @@ export default function Testimonials() {
   });
 
   // Define the animation using `useSpring`
-  const boxStyles = useSpring({
-    opacity: inView ? 1 : 0,
-    transform: inView ? 'scale(1)' : 'scale(0.5)',
-    config: { mass: 1, tension: 200, friction: 20, duration: 500 },
-    delay: 500,
-  });
+  // const boxStyles = useSpring({
+  //   opacity: inView ? 1 : 0,
+  //   transform: inView ? 'scale(1)' : 'scale(0.5)',
+  //   config: { mass: 1, tension: 200, friction: 20, duration: 500 },
+  //   delay: 500,
+  // });
 
   return (
     <Box ref={ref} minH="625px" color={{base: "#FFFFFF", _dark: "#000000"}} mt="5rem">
       <Flex minH="465px" gap="72px" flexDirection="column">
-        <Animated.Flex style={textStyles} flexDirection={{base: "column", lg: "row"}} maxW="1280px" minH="100px" gap={{base: "4rem", lg: "34.313rem"}} ml={{base: "auto", md: "80px"}}>
+        <Animated.Flex style={textStyles} flexDirection={{base: "column", lg: "row"}} maxW="1280px" minH="100px" gap={{base: "4rem", lg: "14rem", xl: "34.313rem"}} ml={{base: "auto", md: "80px"}}>
           <Flex maxW="587px" minH="100px" gap="16px" flexDirection="column">
             <Text maxW="536px" minH="60px" fontWeight="700" fontSize="3.5rem" lineHeight="60px" color={{base: "#061C3D", _dark: "#005EDF"}} textAlign="start">Success Stories</Text>
             <Text maxW="587px" minH="24px" fontWeight="400" fontSize="20px" lineHeight="24.2px" color={{base: "#061C3D", _dark: "#FEFEFE"}} textAlign="start">What our students are saying about their learning experience.</Text>
@@ -45,24 +45,18 @@ export default function Testimonials() {
             </Box>
           </Flex>
         </Animated.Flex>
-        <Animated.Flex 
-          style={boxStyles}
+        <Flex 
           flexDirection={{base: "column", md: "row"}} 
           // maxW="1320px" 
           maxW="1440px"
           minH="293px" 
           gap="2.5rem"
-          flexWrap={{base: "wrap", lg: "nowrap"}} 
+          flexWrap={{base: "wrap", lg: "wrap"}} 
           mx={{base: "auto", lg: "initial"}}
-          ml={{base: "auto", lg: "-100px"}}
+          ml={{base: "auto", lg: "-140px"}}
         >
-          {/* lg: "-200px" */}
-          {inView ? customCard.map((item: any) => {
-            return (
-              <TestimonialCard key={item.id} {...item} />
-            )
-          }) : ""}
-        </Animated.Flex>
+          <CustomCard />
+        </Flex>
       </Flex>
     </Box>
   )
@@ -70,7 +64,7 @@ export default function Testimonials() {
 
 export const TestimonialCard = ({image, name, desc}: {image: string; name: string; desc: string}) => {
   return (
-    <Card.Root maxW="1000px" width="1000px" minH="18.313rem" borderRadius="24px" bg="#005EDF">
+    <Card.Root maxW="26.5rem" minH="18.313rem" borderRadius="24px" bg="#005EDF">
       {/* maxW="26.5rem" width="26.5rem" */}
       <Card.Body maxW="26.5rem" w="100%" minH="13.75rem" gap="1rem" py="2.5rem" px="2.063rem">
         <HStack maxW="12.375rem" minH="48px" gap="0.75rem">
@@ -116,3 +110,61 @@ const customCard = [
     desc: "My decision to enroll in software engineering classes was undoubtedly one of the best I have made. The course content was comprehensive, and our instructors guidance were invaluable in helping me grasp complex concepts.",
   },
 ]
+
+const CustomCard = () => {
+  const [ref, inView] = useInView({ 
+    triggerOnce: false, 
+    // threshold: 0.2 
+  });
+
+  // Use `useTrail` to animate an array of items
+  const trail = useTrail(customCard.length, {
+    triggerOnce: false, // Trigger every time the element comes into view
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'scale(1)' : 'scale(0.5)',
+    config: { mass: 1, tension: 200, friction: 20, duration: 500 },
+    delay: inView ? 200 : 0,
+  });
+
+  return (
+    <Box ref={ref}>
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 3, xl: 4 }} columnGap={"2.5rem"} rowGap={"2.5rem"}>
+        {trail.map((styles, index) => (
+          <Animated.Grid style={styles} w={{base: "340px", sm: "440px", lg: "26rem"}} maxW="26.5rem" minH="18.313rem" borderRadius="24px" bg="#005EDF">
+            <Grid maxW="26.5rem" w="100%" minH="13.75rem" gap="1rem" py="2.5rem" px="1.063rem">
+              <HStack maxW="16.375rem" minH="48px" gap="0.75rem">
+                <Avatar
+                  src={customCard[index].image}
+                  name="Testimonial image"
+                  w="3rem"
+                  h="3rem"
+                />
+                <Stack gap="0" maxW="115.625rem" minH="24px">
+                  <Text fontWeight="500" fontSize="1rem" lineHeight="1.5rem" color="#FEFEFE">{customCard[index].name}</Text>
+                </Stack>
+              </HStack>
+              <Box maxW="26.5rem" fontWeight="400" fontSize="1.125rem" lineHeight="1.625rem" color="#FEFEFE" textAlign='left'>{customCard[index].desc}</Box>
+            </Grid>
+          </Animated.Grid>    
+        ))}
+      </SimpleGrid>
+    </Box>
+  )
+}
+
+{/* <Card.Root>
+              <Card.Body maxW="26.5rem" w="100%" minH="13.75rem" gap="1rem" py="2.5rem" px="2.063rem">
+                <HStack maxW="12.375rem" minH="48px" gap="0.75rem">
+                  <Avatar
+                    src={customCard[index].image}
+                    name="Testimonial image"
+                    w="3rem"
+                    h="3rem"
+                  />
+                  <Stack gap="0" maxW="8.625rem" minH="24px">
+                    <Text fontWeight="500" fontSize="1rem" lineHeight="1.5rem" color="#FEFEFE">{customCard[index].name}</Text>
+                  </Stack>
+                </HStack>
+                <Card.Description maxW="26.5rem" fontWeight="400" fontSize="1.125rem" lineHeight="1.625rem" color="#FEFEFE">{customCard[index].desc}</Card.Description>
+              </Card.Body>
+            </Card.Root> */}

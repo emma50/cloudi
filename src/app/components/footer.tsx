@@ -12,7 +12,7 @@ export default function Footer() {
   // Use the `useInView` hook to detect when the element is visible
   const [ref, inView] = useInView({
     triggerOnce: false, // Trigger every time the element comes into view
-    threshold: 0.2, // Trigger when 20% of the element is visible
+    // threshold: 0.2, // Trigger when 20% of the element is visible
   });
 
   // Define the animation using `useSpring`

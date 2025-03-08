@@ -11,7 +11,7 @@ export default function Training() {
   // Use the `useInView` hook to detect when the element is visible
   const [ref, inView] = useInView({
     triggerOnce: false, // Trigger every time the element comes into view
-    threshold: 0.2, // Trigger when 20% of the element is visible
+    // threshold: 0.2, // Trigger when 20% of the element is visible
   });
 
   // Define the animation using `useSpring`
@@ -31,13 +31,18 @@ export default function Training() {
   });
 
   return (
-    <Flex ref={ref} flexDirection="column" maxW="100%" minH="572px" gap="72px" flexWrap="wrap" pt={{base: "0", sm: "10rem", md: "10rem", lg: "0", xl: "3rem"}}>
-      <Animated.Flex style={textStyles} maxW="100%" w="1274px" minH="136px" flexWrap="wrap" mx="auto" pt={{base: "5rem", md: "auto", lg: "0"}} gap={{base: "1.5rem", md: "0", lg: "6.125rem"}} justifyContent="center">
+    <Flex ref={ref} pt={{base: "2rem", md: "0"}} flexDirection="column" maxW="100%" minH="572px" gap="72px" flexWrap="wrap">
+      {/* pt={{base: "0", sm: "10rem", md: "10rem", lg: "0", xl: "3rem"}} */}
+      <Animated.Flex style={textStyles} maxW="100%" w="1274px" minH="96px" flexWrap="wrap" mx="auto" gap={{base: "1.5rem", md: "0", lg: "6.125rem"}} justifyContent="center">
+        {/* pt={{base: "5rem", md: "auto", lg: "0"}} */}
         {inView ? (
           <>
-          <Text maxW={{base: "608px", lg: "460px", xl: "608px"}} minH="120px" fontWeight="600" fontSize="3rem" lineHeight="60px" color={{base: "#061C3D", _dark: "#3E90F0"}} textAlign={{base: "center", md: "center", lg: "start"}} mx="auto">Why Choose This Training?</Text>
-          <Flex flexDirection="column" maxW={{base: "569px", lg: "480px", xl: "569px"}} minH="136px" gap="24px" alignItems={{base: "center", md: "normal"}} mx="auto" pt={{base: "2rem", lg: "initial"}}>
-            <Text maxW="568px" minH="56px" fontWeight="400" fontSize="20px" lineHeight="28px" color={{base: "#061C3D", _dark:"#FEFEFE"}} textAlign={{base: "center", md: "start"}}>Go from Beginner to Pro with expert mentorship and practical projects in 12 weeks.</Text>
+          <Text maxW={{base: "608px", md: "700px", lg: "460px"}} minH="120px" fontWeight="600" fontSize="3rem" lineHeight="60px" color={{base: "#061C3D", _dark: "#3E90F0"}} textAlign={{base: "center", md: "start", lg: "start"}} mx="auto">Why Choose This Training?</Text>
+          {/* xl: "608px" */}
+          <Flex flexDirection="column" maxW={{base: "608px", md: "700px", lg: "460px"}} minH="96px" gap="24px" alignItems={{base: "center", md: "normal"}} mx="auto" pt={{base: "2rem", lg: "initial"}}>
+            {/* xl: "608px" */}
+            {/* maxW={{base: "569px", lg: "480px", xl: "569px"}} */}
+            <Text maxW={{base: "608px", md: "608px", lg: "460px", xl: "608px"}} minH="56px" fontWeight="400" fontSize="20px" lineHeight="28px" color={{base: "#061C3D", _dark:"#FEFEFE"}} textAlign={{base: "center", md: "start"}}>Go from Beginner to Pro with expert mentorship and practical projects in 12 weeks.</Text>
             <Flex justifyContent="start">
               <Button
                 bg="#005EDF"
