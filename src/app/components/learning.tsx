@@ -85,7 +85,7 @@ export default function Learning() {
           <Text maxW="1260px" minH="60px" fontWeight="500" fontSize="3rem" lineHeight="3.75rem" textAlign="center" color={{base: "#000000", _dark: "#3E90F0"}}>Our Payment Options</Text>
           <Text maxW="648px" minH="56px" fontWeight="400" fontSize="1.25rem" lineHeight="1.75rem" textAlign="center" color={{base: "#000000", _dark: "#FEFEFE"}} mx="auto">Master essential technical and soft skills to prepare you for a career in DevOps Engineering in 12 weeks.</Text>
         </Animated.Flex>
-        <Animated.Flex style={boxStyles} flexDirection={{base: "column", md: "row"}} maxW="1344px" minH="276px" justifyContent={{base: "initial", md: "space-between"}} flexWrap="wrap" gap=".5rem" px={{base: "1rem", md: "initial"}}>
+        <Animated.Flex style={boxStyles} flexDirection={{base: "column", md: "row"}} maxW="1344px" minH="276px" justifyContent={{base: "initial", md: "space-between"}} flexWrap="wrap" gap="1rem" px={{base: "1rem", md: "initial"}}>
           {/* Payment methods */}
           {inView ? paymentMethods.map((item: any) => {
             return (
@@ -100,13 +100,13 @@ export default function Learning() {
 
 const CustomCard = ({id, title, amount, desc}: {id: number; title: string; amount: string; desc: string;}) => {
   return (
-    <Card.Root maxW="710px" overflow="hidden" minW="252px" minH="276px" borderRadius="20px" bg={{base: `${id === 1 ? "#005EDF" : "#FEFEFE"}`, _dark: `${id === 1 ? "#005EDF" : "#0A0A0A"}`}} border={{base: "none", _dark: `${id !== 1 ? "1px solid #3E90F0" : "none"}`}}>
+    <Card.Root maxW={{base: "600px", xl: "710px"}} overflow="hidden" minW="252px" minH="276px" borderRadius="20px" bg={{base: `${id === 1 ? "#005EDF" : "#FEFEFE"}`, _dark: `${id === 1 ? "#005EDF" : "#0A0A0A"}`}} border={{base: "none", _dark: `${id !== 1 ? "1px solid #3E90F0" : "none"}`}}>
       <Card.Body gap="4px" minW="252px" minH="124px" py="1.5rem" px="1.75rem">
         <Card.Title minW="209px" minH="60px" fontWeight="400" fontSize="2.25rem" lineHeight="3.75rem" textAlign="start" color={{base: `${id === 1 ? "#ffffff" : "#000000"}`, _dark: "#ffffff"}}>{title}</Card.Title>
-        <Text minW="139px" maxW={{base: "232px", sm: "352px"}} minH="60px" fontWeight="600" fontSize="2.5rem" lineHeight="3.75rem" textAlign="start" color={{base: `${id === 1 ? "#ffffff" : "#000000"}`, _dark: "#ffffff"}}>
+        <Text minW="139px" maxW={{base: "440px", sm: "512px"}} minH="60px" fontWeight="600" fontSize="2.5rem" lineHeight="3.75rem" textAlign="start" color={{base: `${id === 1 ? "#ffffff" : "#000000"}`, _dark: "#ffffff"}}>
           {amount}
         </Text>
-        <Card.Description pt="2rem" maxW="582px" minH="72px" fontWeight="400" fontSize="1.5rem" lineHeight="2.25rem" textAlign="start" color={{base: `${id === 1 ? "#ffffff" : "#000000"}`, _dark: "#ffffff"}} pr="1.75rem">{desc}</Card.Description>
+        <Card.Description pt="2rem" maxW={{base: "440px", lg: "512px", xl: "582px"}} minH="72px" fontWeight="400" fontSize="1.5rem" lineHeight="2.25rem" textAlign="start" color={{base: `${id === 1 ? "#ffffff" : "#000000"}`, _dark: "#ffffff"}} pr="1.75rem">{desc}</Card.Description>
       </Card.Body>
       {/* <Card.Footer gap="2">
         <Text></Text>
