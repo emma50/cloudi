@@ -7,12 +7,14 @@ import {
   AccordionItemTrigger,
   // AccordionRoot, 
   Icon, 
-  Stack 
+  Stack, 
+  List
 } from "@chakra-ui/react"
 import { GoPlus } from "react-icons/go";
 import { useSpring } from '@react-spring/web';
 import { Animated } from "@/externals";
 import { useInView } from 'react-intersection-observer';
+import { IoCheckbox } from "react-icons/io5";
 
 export default function Faq() {
   // Use the `useInView` hook to detect when the element is visible
@@ -88,30 +90,74 @@ const items = [
   {
     value: "reason",
     icon: <GoPlus />,
-    title: "What is this course for?",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec odio vel dui euismod fermentum.",
+    title: "Who is this course for?",
+    content: <Text>This course is for <Text as="span" fontWeight="700">aspiring DevOps engineers, software developers, IT professionals, and system administrators</Text> who want to master DevOps principles, automation, cloud computing, and CI/CD pipelines. Whether you're a <Text as="span" fontWeight="700">beginner looking to break into DevOps</Text> or an experienced professional wanting to <Text as="span" fontWeight="700">level up your skills</Text>, this training is designed for you!</Text>,
   },
   {
     value: "learning",
     icon: <GoPlus />,
     title: "What tools will I learn?",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec odio vel dui euismod fermentum.",
+    content: <>
+      <Text pb="1rem">You’ll get hands-on experience with industry-standard tools, including:
+      </Text>
+      <List.Root gap="2" variant="plain" align="center">
+        <List.Item>
+          <List.Indicator asChild color="green.500">
+            <IoCheckbox />
+          </List.Indicator>
+          <Text><Text as="span" fontWeight="700">Version Control:</Text> Git, GitHub</Text>
+        </List.Item>
+        <List.Item>
+          <List.Indicator asChild color="green.500">
+            <IoCheckbox />
+          </List.Indicator>
+          <Text><Text as="span" fontWeight="700">Scripting & Automation:</Text> Python</Text>
+        </List.Item>
+        <List.Item>
+          <List.Indicator asChild color="green.500">
+            <IoCheckbox />
+          </List.Indicator>
+          <Text><Text as="span" fontWeight="700">Cloud Services:</Text>AWS (EC2, S3, IAM, VPC, EKS)</Text>
+        </List.Item>
+        <List.Item>
+          <List.Indicator asChild color="green.500">
+            <IoCheckbox />
+          </List.Indicator>
+          <Text><Text as="span" fontWeight="700">Infrastructure as Code (IaC):</Text>Terraform</Text>
+        </List.Item>
+        <List.Item>
+          <List.Indicator asChild color="green.500">
+            <IoCheckbox />
+          </List.Indicator>
+          <Text><Text as="span" fontWeight="700">Containerization:</Text>Docker, Docker Compose</Text>
+        </List.Item>
+        <List.Item>
+          <List.Indicator asChild color="green.500">
+            <IoCheckbox />
+          </List.Indicator>
+          <Text><Text as="span" fontWeight="700">Orchestration:</Text>Kubernetes</Text>
+        </List.Item>
+        <List.Item>
+          <List.Indicator asChild color="green.500">
+            <IoCheckbox />
+          </List.Indicator>
+          <Text><Text as="span" fontWeight="700">CI/CD Pipelines:</Text>Jenkins, GitHub Actions
+          </Text>
+        </List.Item>
+      </List.Root>
+    </>,
   },
   {
     value: "cost",
     icon: <GoPlus />,
     title: "How much does the training cost?",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec odio vel dui euismod fermentum.",
+    content: <Text>We offer flexible pricing plans to make this training accessible. Visit our <Text as="span" fontWeight="700">pricing section</Text> or contact us for details on available <Text as="span" fontWeight="700">discounts, payment plans, and scholarships.</Text></Text>,
   },
   {
     value: "certificate",
     icon: <GoPlus />,
     title: "Will I get a certificate?",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec odio vel dui euismod fermentum.",
+    content: <Text>Yes! Upon successful completion of the training and capstone project, you’ll receive a <Text as="span" fontWeight="700">verified certificate</Text> that showcases your expertise and can be added to your <Text as="span" fontWeight="700">resume and LinkedIn profile</Text>.</Text>,
   },
 ]
 
