@@ -29,8 +29,8 @@ export default function Footer() {
         {inView ? (
           <>
             <Flex flexDirection="column" maxW="674px" minH="170px" gap="1rem">
-              <Flex flexDirection="column" mx="auto" maxW="312px" minH="83px" gap=".5rem">
-                <Text minW="312px" minH="29px" fontWeight="700" fontSize="1.5rem" lineHeight="28.8px" textAlign="center" color={{base: "#232627", _dark: "#FEFEFE"}}>Join our newsletter</Text>
+              <Flex flexDirection="column" mx="auto" maxW="392px" minH="83px" gap=".5rem">
+                <Text minW="312px" minH="29px" fontWeight="700" fontSize="2.5rem" lineHeight="28.8px" textAlign="center" color={{base: "#232627", _dark: "#FEFEFE"}}>Join our newsletter</Text>
                 <Text minW="312px" minH="46px" fontWeight="400" fontSize="1rem" lineHeight="23.2px" textAlign="center" color={{base: "#232627", _dark: "#FEFEFE"}}>Get all the latest Cloudi news delivered to your inbox.</Text>
               </Flex>
               <Flex maxW="674px" minH="71px" gap=".5rem">
