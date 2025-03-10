@@ -28,10 +28,10 @@ export default function Footer() {
       <Animated.Flex style={textStyles} flexDirection="column" maxW="1216px" maxH="637px" py="4rem" gap="2.5rem" alignItems="center">
         {inView ? (
           <>
-            <Flex flexDirection="column" maxW="674px" minH="170px" gap="1rem">
-              <Flex flexDirection="column" mx="auto" maxW="392px" minH="83px" gap=".5rem">
-                <Text minW="312px" minH="29px" fontWeight="700" fontSize="2.5rem" lineHeight="28.8px" textAlign="center" color={{base: "#232627", _dark: "#FEFEFE"}}>Join our newsletter</Text>
-                <Text minW="312px" minH="46px" fontWeight="400" fontSize="1rem" lineHeight="23.2px" textAlign="center" color={{base: "#232627", _dark: "#FEFEFE"}}>Get all the latest Cloudi news delivered to your inbox.</Text>
+            <Flex flexDirection="column" maxW="674px" minH="190px" gap="1rem" alignItems="space-between">
+              <Flex flexDirection="column" mx="auto" maxW="392px" minH="123px" gap=".5rem" alignItems="space-between">
+                <Text minW="312px" minH="69px" fontWeight="700" fontSize="2.5rem" lineHeight="28.8px" textAlign="center" color={{base: "#232627", _dark: "#FEFEFE"}}>Join our newsletter</Text>
+                <Text minW="312px" minH="76px" fontWeight="400" fontSize="1rem" lineHeight="23.2px" textAlign="center" color={{base: "#232627", _dark: "#FEFEFE"}}>Get all the latest Cloudi news delivered to your inbox.</Text>
               </Flex>
               <Flex maxW="674px" minH="71px" gap=".5rem">
                 <Input placeholder="Email address" minW ={{base:"200px", md: "532px"}} minH="56px" borderRadius="6px" p="1rem" bg={{base: "#E8ECEF", _dark: "#232627"}} border={{base: "1px solid #E8ECEF", _dark: "1px solid #343839"}} color="#98A2B3" fontWeight="400" fontSize="0.875rem" lineHeight="20.3px"/>
