@@ -24,7 +24,8 @@ export default function Testimonials() {
   return (
     <Box ref={ref} minH="625px" color={{base: "#FFFFFF", _dark: "#000000"}} mt="5rem">
       <Flex minH="465px" gap="72px" flexDirection="column">
-        <Animated.Flex style={textStyles} flexDirection={{base: "column", lg: "row"}} maxW="1280px" minH="100px" gap={{base: "4rem", lg: "24rem", xl: "34.313rem"}} ml={{base: "auto", md: "80px"}}>
+        <Animated.Flex style={textStyles} flexDirection={{base: "column", lg: "row"}} maxW="1280px" minH="100px" gap={{base: "4rem", lg: "24rem", xl: "34.313rem"}} mx={{base: "auto", md: "80px"}}>
+          {/* ml={{base: "auto", md: "80px"}} */}
           <Flex maxW="587px" minH="100px" gap="16px" flexDirection="column">
             <Text maxW="536px" minH="60px" fontWeight="700" fontSize="3.5rem" lineHeight="60px" color={{base: "#061C3D", _dark: "#005EDF"}} textAlign="start">Success Stories</Text>
             <Text maxW="587px" minH="24px" fontWeight="400" fontSize="20px" lineHeight="24.2px" color={{base: "#061C3D", _dark: "#FEFEFE"}} textAlign="start">What our students are saying about their learning experience.</Text>
@@ -43,7 +44,7 @@ export default function Testimonials() {
           maxW="1540px"
           minH="293px" 
           gap="1.5rem"
-          ml={{base: "auto", lg: "-240px"}}
+          ml={{base: "auto", lg: "-260px", xl: "-300px"}}
           mr={{base: "auto", lg: "1rem"}}
           display={{base: "flex", lg: "block"}}
         >
@@ -104,7 +105,7 @@ const CustomCard = () => {
 
   return (
     <Box ref={ref}>
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} columnGap={`${isStyleFour ? "5.5rem" : "1.5rem"}`} rowGap={"2.5rem"}>
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} columnGap={`${isStyleFive ? "7.5rem" : isStyleFour ? "2.5rem" : isStyleTwo ? "1rem" : "1.5rem"}`} rowGap={"2.5rem"} mr={{base: "auto", lg: "1rem", xl: "1rem"}}>
         {trail.map((styles, index) => (
           <>
           {isStyleOne ? (
@@ -126,7 +127,7 @@ const CustomCard = () => {
               </Grid>
             </Animated.Grid> 
           ) : isStyleTwo ? (
-            <Animated.Grid style={styles} w="21rem" maxW="21.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
+            <Animated.Grid style={styles} w="22rem" maxW="21.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
               <Grid w="100%" minH="10.75rem" gap="1rem" py="1.5rem" px="1.063rem">
                 {/* maxW="26.5rem" */}
                 <HStack maxW="16.375rem" minH="48px" gap="0.75rem">
@@ -180,7 +181,7 @@ const CustomCard = () => {
               </Grid>
             </Animated.Grid> 
           ) : isStyleFive ? (
-            <Animated.Grid style={styles} w="24rem" maxW="26.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
+            <Animated.Grid style={styles} w="24.5rem" maxW="26.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
               <Grid w="100%" minH="13.75rem" gap="1.5rem" py="1.5rem" px="1.063rem">
                 {/* maxW="26.5rem" */}
                 <HStack maxW="16.375rem" minH="48px" gap="0.75rem">
