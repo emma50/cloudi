@@ -139,7 +139,7 @@ export default function Learning() {
 }
 
 const CustomLearningCardOne = () => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [ref, inView] = useInView({ triggerOnce: false });
 
   // Use `useTrail` to animate an array of items
   const trail = useTrail(learningList.length, {
@@ -204,7 +204,7 @@ const CustomLearningCardOne = () => {
 }
 
 const CustomLearningCardTwo = () => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [ref, inView] = useInView({ triggerOnce: false });
 
   // Use `useTrail` to animate an array of items
   const trail = useTrail(learningListTwo.length, {
@@ -219,7 +219,7 @@ const CustomLearningCardTwo = () => {
     <Box ref={ref}>
       <SimpleGrid columns={{ base: 1 }} gap="1.5rem">
         {trail.map((styles, index) => (
-           <Animated.Box style={styles} >
+          <Animated.Box style={styles} >
             <Card.Root 
               maxW="100%" 
               w="100%"

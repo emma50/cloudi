@@ -40,13 +40,9 @@ export default function Testimonials() {
         </Animated.Flex>
         <Flex 
           flexDirection={{base: "column", md: "row"}} 
-          // maxW="1320px" 
-          // maxW="1440px"
           maxW="1540px"
           minH="293px" 
           gap="1.5rem"
-          // flexWrap="wrap" 
-          // mx={{base: "auto", lg: "initial"}}
           ml={{base: "auto", lg: "-240px"}}
           mr={{base: "auto", lg: "1rem"}}
           display={{base: "flex", lg: "block"}}
@@ -57,28 +53,6 @@ export default function Testimonials() {
     </Box>
   )
 }
-
-// export const TestimonialCard = ({image, name, desc}: {image: string; name: string; desc: string}) => {
-//   return (
-//     <Card.Root maxW="26.5rem" minH="18.313rem" borderRadius="24px" bg="#005EDF">
-//       {/* maxW="26.5rem" width="26.5rem" */}
-//       <Card.Body maxW="26.5rem" w="100%" minH="13.75rem" gap="1rem" py="2.5rem" px="2.063rem">
-//         <HStack maxW="12.375rem" minH="48px" gap="0.75rem">
-//           <Avatar
-//             src={image}
-//             name="Testimonial image"
-//             w="3rem"
-//             h="3rem"
-//           />
-//           <Stack gap="0" maxW="8.625rem" minH="24px">
-//             <Text fontWeight="500" fontSize="1rem" lineHeight="1.5rem" color="#FEFEFE">{name}</Text>
-//           </Stack>
-//         </HStack>
-//         <Card.Description maxW="26.5rem" fontWeight="400" fontSize="1.125rem" lineHeight="1.625rem" color="#FEFEFE">{desc}</Card.Description>
-//       </Card.Body>
-//     </Card.Root>
-//   )
-// }
 
 const customCard = [
   {
@@ -108,8 +82,9 @@ const customCard = [
 ]
 
 const CustomCard = () => {
-  const isStyleOne = useMediaQuery({ minWidth: 1160, maxWidth: 1170 })
-  const isStyleTwo = useMediaQuery({ minWidth: 1171, maxWidth: 1200 })
+  const isStyleOne = useMediaQuery({ minWidth: 1024, maxWidth: 1160 })
+  const isStyleTwo = useMediaQuery({ minWidth: 1160, maxWidth: 1170 })
+  const isStyleThree = useMediaQuery({ minWidth: 1171, maxWidth: 1200 })
 
   const [ref, inView] = useInView({ 
     triggerOnce: false, 
@@ -130,8 +105,8 @@ const CustomCard = () => {
       <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} columnGap={"1.5rem"} rowGap={"2.5rem"}>
         {trail.map((styles, index) => (
           <>{isStyleOne ? (
-            <Animated.Grid style={styles} w="21rem" maxW="26.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
-              <Grid w="100%" minH="13.75rem" gap="1rem" py="2.5rem" px="1.063rem">
+            <Animated.Grid style={styles} w="21rem" maxW="21.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
+              <Grid w="100%" minH="10.75rem" gap="1rem" py="1.5rem" px="1.063rem">
                 {/* maxW="26.5rem" */}
                 <HStack maxW="16.375rem" minH="48px" gap="0.75rem">
                   <Avatar
@@ -148,8 +123,26 @@ const CustomCard = () => {
               </Grid>
             </Animated.Grid> 
           ) : isStyleTwo ? (
+            <Animated.Grid style={styles} w="21rem" maxW="26.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
+              <Grid w="100%" minH="13.75rem" gap="1rem" py="1.5rem" px="1.063rem">
+                {/* maxW="26.5rem" */}
+                <HStack maxW="16.375rem" minH="48px" gap="0.75rem">
+                  <Avatar
+                    src={customCard[index].image}
+                    name="Testimonial image"
+                    w="3rem"
+                    h="3rem"
+                  />
+                  <Stack gap="0" maxW="115.625rem" minH="24px">
+                    <Text fontWeight="500" fontSize="1rem" lineHeight="1.5rem" color="#FEFEFE">{customCard[index].name}</Text>
+                  </Stack>
+                </HStack>
+                <Box maxW="26.5rem" fontWeight="400" fontSize="1.125rem" lineHeight="1.625rem" color="#FEFEFE" textAlign='left'>{customCard[index].desc}</Box>
+              </Grid>
+            </Animated.Grid> 
+          ) : isStyleThree ? (
             <Animated.Grid style={styles} w="20rem" maxW="26.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
-              <Grid w="100%" minH="13.75rem" gap="1rem" py="2.5rem" px="1.063rem">
+              <Grid w="100%" minH="13.75rem" gap="1rem" py="1.5rem" px="1.063rem">
                 {/* maxW="26.5rem" */}
                 <HStack maxW="16.375rem" minH="48px" gap="0.75rem">
                   <Avatar
@@ -167,7 +160,7 @@ const CustomCard = () => {
             </Animated.Grid> 
           ) : (
             <Animated.Grid style={styles} w={{base: "340px", sm: "440px", lg: "22rem", xl: "26rem"}} maxW="26.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
-              <Grid w="100%" minH="13.75rem" gap="1rem" py="2.5rem" px="1.063rem">
+              <Grid w="100%" minH="13.75rem" gap="1rem" py="1.5rem" px="1.063rem">
                 {/* maxW="26.5rem" */}
                 <HStack maxW="16.375rem" minH="48px" gap="0.75rem">
                   <Avatar
