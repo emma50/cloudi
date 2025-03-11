@@ -86,7 +86,7 @@ const CustomCard = () => {
   const isStyleTwo = useMediaQuery({ minWidth: 1036, maxWidth: 1160 })
   const isStyleThree = useMediaQuery({ minWidth: 1160, maxWidth: 1170 })
   const isStyleFour = useMediaQuery({ minWidth: 1171, maxWidth: 1200 })
-  const isStyleFive = useMediaQuery({ minWidth: 1297, maxWidth: 1440 })
+  const isStyleFive = useMediaQuery({ minWidth: 1297 })
 
   const [ref, inView] = useInView({ 
     triggerOnce: false, 
@@ -181,7 +181,7 @@ const CustomCard = () => {
             </Animated.Grid> 
           ) : isStyleFive ? (
             <Animated.Grid style={styles} w="24rem" maxW="26.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
-              <Grid w="100%" minH="13.75rem" gap="1rem" py="1.5rem" px="1.063rem">
+              <Grid w="100%" minH="13.75rem" gap="1.5rem" py="1.5rem" px="1.063rem">
                 {/* maxW="26.5rem" */}
                 <HStack maxW="16.375rem" minH="48px" gap="0.75rem">
                   <Avatar
