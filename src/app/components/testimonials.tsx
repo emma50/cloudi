@@ -82,9 +82,11 @@ const customCard = [
 ]
 
 const CustomCard = () => {
-  const isStyleOne = useMediaQuery({ minWidth: 1024, maxWidth: 1160 })
-  const isStyleTwo = useMediaQuery({ minWidth: 1160, maxWidth: 1170 })
-  const isStyleThree = useMediaQuery({ minWidth: 1171, maxWidth: 1200 })
+  const isStyleOne = useMediaQuery({ minWidth: 1024, maxWidth: 1135 })
+  const isStyleTwo = useMediaQuery({ minWidth: 1036, maxWidth: 1160 })
+  const isStyleThree = useMediaQuery({ minWidth: 1160, maxWidth: 1170 })
+  const isStyleFour = useMediaQuery({ minWidth: 1171, maxWidth: 1200 })
+  const isStyleFive = useMediaQuery({ minWidth: 1297, maxWidth: 1440 })
 
   const [ref, inView] = useInView({ 
     triggerOnce: false, 
@@ -102,10 +104,11 @@ const CustomCard = () => {
 
   return (
     <Box ref={ref}>
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} columnGap={"1.5rem"} rowGap={"2.5rem"}>
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} columnGap={`${isStyleFour ? "5.5rem" : "1.5rem"}`} rowGap={"2.5rem"}>
         {trail.map((styles, index) => (
-          <>{isStyleOne ? (
-            <Animated.Grid style={styles} w="21rem" maxW="21.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
+          <>
+          {isStyleOne ? (
+            <Animated.Grid style={styles} w="19rem" maxW="21.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
               <Grid w="100%" minH="10.75rem" gap="1rem" py="1.5rem" px="1.063rem">
                 {/* maxW="26.5rem" */}
                 <HStack maxW="16.375rem" minH="48px" gap="0.75rem">
@@ -123,6 +126,24 @@ const CustomCard = () => {
               </Grid>
             </Animated.Grid> 
           ) : isStyleTwo ? (
+            <Animated.Grid style={styles} w="21rem" maxW="21.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
+              <Grid w="100%" minH="10.75rem" gap="1rem" py="1.5rem" px="1.063rem">
+                {/* maxW="26.5rem" */}
+                <HStack maxW="16.375rem" minH="48px" gap="0.75rem">
+                  <Avatar
+                    src={customCard[index].image}
+                    name="Testimonial image"
+                    w="3rem"
+                    h="3rem"
+                  />
+                  <Stack gap="0" maxW="115.625rem" minH="24px">
+                    <Text fontWeight="500" fontSize="1rem" lineHeight="1.5rem" color="#FEFEFE">{customCard[index].name}</Text>
+                  </Stack>
+                </HStack>
+                <Box maxW="26.5rem" fontWeight="400" fontSize="1.125rem" lineHeight="1.625rem" color="#FEFEFE" textAlign='left'>{customCard[index].desc}</Box>
+              </Grid>
+            </Animated.Grid> 
+          ) : isStyleThree ? (
             <Animated.Grid style={styles} w="21rem" maxW="26.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
               <Grid w="100%" minH="13.75rem" gap="1rem" py="1.5rem" px="1.063rem">
                 {/* maxW="26.5rem" */}
@@ -140,8 +161,26 @@ const CustomCard = () => {
                 <Box maxW="26.5rem" fontWeight="400" fontSize="1.125rem" lineHeight="1.625rem" color="#FEFEFE" textAlign='left'>{customCard[index].desc}</Box>
               </Grid>
             </Animated.Grid> 
-          ) : isStyleThree ? (
+          ) : isStyleFour ? (
             <Animated.Grid style={styles} w="20rem" maxW="26.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
+              <Grid w="100%" minH="13.75rem" gap="1rem" py="1.5rem" px="1.063rem">
+                {/* maxW="26.5rem" */}
+                <HStack maxW="16.375rem" minH="48px" gap="0.75rem">
+                  <Avatar
+                    src={customCard[index].image}
+                    name="Testimonial image"
+                    w="3rem"
+                    h="3rem"
+                  />
+                  <Stack gap="0" maxW="115.625rem" minH="24px">
+                    <Text fontWeight="500" fontSize="1rem" lineHeight="1.5rem" color="#FEFEFE">{customCard[index].name}</Text>
+                  </Stack>
+                </HStack>
+                <Box maxW="26.5rem" fontWeight="400" fontSize="1.125rem" lineHeight="1.625rem" color="#FEFEFE" textAlign='left'>{customCard[index].desc}</Box>
+              </Grid>
+            </Animated.Grid> 
+          ) : isStyleFive ? (
+            <Animated.Grid style={styles} w="24rem" maxW="26.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
               <Grid w="100%" minH="13.75rem" gap="1rem" py="1.5rem" px="1.063rem">
                 {/* maxW="26.5rem" */}
                 <HStack maxW="16.375rem" minH="48px" gap="0.75rem">
