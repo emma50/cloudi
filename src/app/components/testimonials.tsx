@@ -199,7 +199,7 @@ const CustomCard = () => {
               </Grid>
             </Animated.Grid> 
           ) : (
-            <Animated.Grid style={styles} w={{base: "340px", sm: "440px", lg: "22rem", xl: "26rem"}} maxW="26.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
+            <Animated.Grid style={styles} w={{base: "340px", sm: "440px", lg: "22rem", xl: "26rem"}} maxW="22.5rem" minH="16.313rem" borderRadius="24px" bg="#005EDF">
               <Grid w="100%" minH="13.75rem" gap="1rem" py="1.5rem" px="1.063rem">
                 {/* maxW="26.5rem" */}
                 <HStack maxW="16.375rem" minH="48px" gap="0.75rem">
