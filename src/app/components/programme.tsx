@@ -5,8 +5,11 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { useSpring } from '@react-spring/web';
 import { Animated } from "@/externals";
 import { useInView } from 'react-intersection-observer';
+import { useMediaQuery } from 'react-responsive'
 
 export default function Programme() {
+  const isStyled = useMediaQuery({ minWidth: 1023, maxWidth: 1168 })
+
   // Use the `useInView` hook to detect when the element is visible
   const [ref, inView] = useInView({
     triggerOnce: false, // Trigger every time the element comes into view
@@ -26,12 +29,15 @@ export default function Programme() {
       <Animated.Flex style={textStyles} minH="108px" maxW="1282px" gap="4rem" flexDirection={{base: "column", md: "row"}} alignItems={{base: "center", md: "initial"}} mx={{base: "auto", md: "auto"}}>
         {inView ? (
           <>
-            <Flex maxW="301px" minH="80px" gap=".5rem" flexDirection="column" alignItems={{base: "center", md: "center", lg:"start"}}>
-              <Flex maxW="301px" justifyContent={{base: "initial", md: "flex-end"}}>
-                <Text maxW="301px" minH="28px" fontWeight="400" fontSize="1.25rem" lineHeight="1.75rem" color={{base: "#061C3D", _dark: "#FEFEFE"}} textAlign={{base: "center", md: "center" }} textTransform="uppercase">Start date</Text>
-              </Flex>
-                <Text maxW="301px" minH="44px" fontWeight="700" fontSize="2rem" lineHeight="44px" color={{base: "#061C3D", _dark: "#FEFEFE"}} textAlign={{base: "center", md: "center" }}>March 3, 2025</Text>
-              </Flex>
+            <Flex 
+              maxW="301px" 
+              minH="80px" 
+              gap=".5rem" 
+              flexDirection="column" 
+            >
+              <Text maxW="301px" minH="28px" fontWeight="400" fontSize="1.25rem" lineHeight="1.75rem" color={{base: "#061C3D", _dark: "#FEFEFE"}} textAlign={{base: "center", md: "center", lg: `${isStyled ? "center" : "start"}` }} textTransform="uppercase">Start date</Text>
+              <Text maxW="301px" minH="44px" fontWeight="700" fontSize="2rem" lineHeight="44px" color={{base: "#061C3D", _dark: "#FEFEFE"}} textAlign={{base: "center", md: "center" }}>March 3, 2025</Text>
+            </Flex>
             <Flex maxW="917px" minH="108px" gap="4rem" flexDirection={{base: "column", md: "row"}} flexWrap="wrap" alignItems={{base: "center", md: "initial"}}>
               <Flex maxW="677px" minH="108px" gap="40px" flexDirection={{base: "column", md: "row"}} alignItems={{base: "center", md: "initial"}}>
                 <Flex maxW="199px" minH="108px" gap="12px" flexDirection="column" alignItems="center">
