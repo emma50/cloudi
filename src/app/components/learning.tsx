@@ -313,7 +313,7 @@ const paymentMethods = [
   {
     id: 2,
     title: "2 Installment Option",
-    amount: "₦175,000/payment",
+    amount: "₦175,000/Installment",
     desc: "Complete your payment within 2 months of the program in 2 installments.",
   },
 ]
