@@ -1,7 +1,6 @@
 import { Box } from "@chakra-ui/react"
 import Hero from "../components/hero"
 import Training from "../components/training"
-import Instructor from "../components/instructor"
 import Testimonials from "../components/testimonials"
 import Faq from "../components/faq"
 import Programme from "../components/programme"
@@ -17,7 +16,6 @@ export default function LandingPage() {
       <Training />
       <Learning />
       <Programme />
-      <Instructor />
       <Testimonials />
       <Faq />
       <Footer />

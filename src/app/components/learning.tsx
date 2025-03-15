@@ -154,7 +154,7 @@ const CustomLearningCardOne = () => {
     <Box ref={ref}>
       <SimpleGrid columns={{ base: 1 }} gap="1.5rem">
         {trail.map((styles, index) => (
-           <Animated.Box style={styles} >
+           <Animated.Box key={learningList[index].id} style={styles} >
             <Card.Root 
               maxW="100%" 
               w="100%"
@@ -219,7 +219,7 @@ const CustomLearningCardTwo = () => {
     <Box ref={ref}>
       <SimpleGrid columns={{ base: 1 }} gap="1.5rem">
         {trail.map((styles, index) => (
-          <Animated.Box style={styles} >
+          <Animated.Box key={learningListTwo[index].id} style={styles} >
             <Card.Root 
               maxW="100%" 
               w="100%"
@@ -286,7 +286,7 @@ const PaymentCard = () => {
     <Box ref={ref}>
       <SimpleGrid columns={{ base: 1, md: 2 }} gap="1.5rem">
         {trail.map((styles, index) => (
-           <Animated.Box style={styles} >
+           <Animated.Box key={paymentMethods[index].id} style={styles}>
             <Card.Root maxW={{base: "340px", sm: "440px", lg: "710px"}} overflow="hidden" minW="160px" minH="276px" borderRadius="20px" bg={{base: `${paymentMethods[index].id === 1 ? "#005EDF" : "#FEFEFE"}`, _dark: `${paymentMethods[index].id === 1 ? "#005EDF" : "#0A0A0A"}`}} border={{base: "none", _dark: `${paymentMethods[index].id !== 1 ? "1px solid #3E90F0" : "none"}`}}>
               <Card.Body gap="4px" minW="180px" minH="124px" py="1.5rem" px="1.75rem">
                 <Card.Title minW="160px" minH="60px" fontWeight="400" fontSize="2.25rem" lineHeight="3.75rem" textAlign="start" color={{base: `${paymentMethods[index].id === 1 ? "#ffffff" : "#000000"}`, _dark: "#ffffff"}}>{paymentMethods[index].title}</Card.Title>

@@ -68,7 +68,7 @@ const CustomAccordion = () => {
       <AccordionRoot collapsible defaultValue={["reason"]} display="flex" flexDirection="column">
         <Box mx="auto">
           {trail.map((styles, index) => (
-            <Animated.AccordionItem style={styles} value={items[index].value} border="1px solid #6C7275" mb="1.25rem" px="1rem" py="1rem" w={{base: "auto", md: "43.75rem", lg: "60rem"}} borderRadius="8px">
+            <Animated.AccordionItem key={items[index].value} style={styles} value={items[index].value} border="1px solid #6C7275" mb="1.25rem" px="1rem" py="1rem" w={{base: "auto", md: "43.75rem", lg: "60rem"}} borderRadius="8px">
             <AccordionItemTrigger display="flex" justifyContent="space-between" alignItems="center" pb="1rem">
               <Box minW="256px" minH="32px" fontWeight="800" fontSize="1.5rem" lineHeight="2rem" color={{base: "#000000", _dark: "#FEFEFE"}} textAlign="start">{items[index].title}</Box>
               <Icon fontSize="md" color="fg.subtle" w="32px" minH="32px" border="1px solid #6C7275" display="initial" borderRadius="4px">

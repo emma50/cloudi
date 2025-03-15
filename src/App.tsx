@@ -1,4 +1,10 @@
 import { Box } from '@chakra-ui/react'
+//@ts-ignore
+import 'swiper/css';
+//@ts-ignore
+import 'swiper/css/pagination';
+//@ts-ignore
+import 'swiper/css/navigation';
 import './App.css'
 import LandingPage from './app/landing'
 

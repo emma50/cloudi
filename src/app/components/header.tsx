@@ -98,7 +98,7 @@ const MenuLinks = ({ isOpen }: {isOpen: any}) => {
         <Flex display={{base: "flex", lg: "none"}} flexDirection={{base: "column", lg: "row"}} alignItems={{base: "initial", lg: "center"}}>
           {headerList.map((item) => {
             return (
-              <MenuItem to="/" size={{base: "1rem", lg: "initial"}}>{item.title}</MenuItem>
+              <MenuItem key={item.id} to="/" size={{base: "1rem", lg: "initial"}}>{item.title}</MenuItem>
             )
           })}
         </Flex>
@@ -147,7 +147,7 @@ const LargeMenuLinks = ({ isOpen }: {isOpen: any}) => {
         <Flex display={{base: "none", lg: "flex"}} flexDirection={{base: "column", lg: "row"}} alignItems={{base: "initial", lg: "center"}} gap={{base: "0", lg: ".5rem", xl: "3.5rem"}}>
           {headerList.map((item) => {
             return (
-              <MenuItem to="/" size={{base: "1rem", lg: "initial"}}>{item.title}</MenuItem>
+              <MenuItem key={item.id} to="/" size={{base: "1rem", lg: "initial"}}>{item.title}</MenuItem>
             )
           })}
         </Flex>
