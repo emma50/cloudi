@@ -129,7 +129,7 @@ const AnimatedItems = ({ item, inView }: {item: any; inView: any}) => {
     <Flex w={{base: "100%", lg: "90%"}}>
       <Animated.Flex style={style} flexDirection="column" alignItems="center" justifyContent="center" gap="2rem" maxW="100%" minH="16.313rem" mx="auto">
         {/* bg="#005EDF" */}
-        <Text maxW="80%" fontWeight="400" fontSize="1.25rem" lineHeight="1.625rem" textAlign='center' color="#D7EAF8">{item.desc}</Text>
+        <Text maxW="80%" fontWeight="400" fontSize="1.25rem" lineHeight="1.625rem" textAlign='center' color={{base: "#6C7275", _dark: "#D7EAF8"}}>{item.desc}</Text>
         {/* color="#FEFEFE" */}
         <Text fontWeight="500" fontSize="1.125rem" lineHeight="1.5rem" textAlign="center" color="#005EDF">{item.name}</Text>
         {/* color="#FEFEFE" */}
