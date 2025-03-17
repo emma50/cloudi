@@ -100,7 +100,7 @@ const CustomSlider = ({swiperRef}: {swiperRef: any}) => {
           <SwiperSlide key={card.id}>
             <InView triggerOnce={false}>
               {({ inView, ref }) => (
-                <Box ref={ref} display="flex" justifyContent="center">
+                <Box ref={ref} display="flex" justifyContent="center" bg={{base: "#005EDF", _dark: "#141718"}} minH="440px">
                   <AnimatedItems item={card} inView={inView && index === activeIndex} />
                 </Box>
               )}
@@ -127,12 +127,10 @@ const AnimatedItems = ({ item, inView }: {item: any; inView: any}) => {
 
   return (
     <Flex w={{base: "100%", lg: "90%"}}>
-      <Animated.Flex style={style} flexDirection="column" alignItems="center" justifyContent="center" gap="2rem" maxW="100%" minH="16.313rem" mx="auto">
+      <Animated.Flex style={style} flexDirection="column" alignItems="center" justifyContent="center" gap="1rem" maxW="100%" minH="16.313rem" mx="auto">
         {/* bg="#005EDF" */}
-        <Text maxW="80%" fontWeight="400" fontSize="1.25rem" lineHeight="1.625rem" textAlign='center' color={{base: "#6C7275", _dark: "#D7EAF8"}}>{item.desc}</Text>
-        {/* color="#FEFEFE" */}
-        <Text fontWeight="500" fontSize="1.125rem" lineHeight="1.5rem" textAlign="center" color="#005EDF">{item.name}</Text>
-        {/* color="#FEFEFE" */}
+        <Text maxW="90%" fontWeight="400" fontSize="1.5rem" lineHeight="150%" textAlign='center' color="#FEFEFE">{item.desc}</Text>
+        <Text fontWeight="500" fontSize="1.25rem" lineHeight="1.5rem" textAlign="center" color={{base: "#FEFEFE", _dark: "#005EDF" }}>{item.name}</Text>
       </Animated.Flex> 
     </Flex>
   );
