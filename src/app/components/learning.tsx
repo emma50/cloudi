@@ -53,7 +53,7 @@ export default function Learning() {
   });
 
   return (
-    <Box maxW="1440px" minH="2035px" pt={{base: "0", md: "0"}} position="relative">
+    <Box maxW="1440px" minH="2035px" pt={{base: "0", md: "0"}} position="relative" id="courses">
       <Flex ref={ref1} flexDirection="column" maxW="100%" minH="132px" gap="1rem" alignItems="center" py={{base: "7.5rem", md: "5.5rem"}}>
         <Animated.Text style={textStyles} maxW="1260px" minH="60px" fontWeight="600" fontSize="3rem" lineHeight="3.75rem" textAlign="center" color={{base: "#000000", _dark: "#3E90F0"}} mx="auto" zIndex="99">{inView1 ? "What You Will Learn" : ""}</Animated.Text>
         <Animated.Text style={textStyles} maxW="746px" minH="66px" fontWeight="400" fontSize="1.5rem" lineHeight="1.75rem" textAlign="center" color={{base: "#000000", _dark: "#FEFEFE"}} mx="auto" zIndex="99">{inView1 ? "Master essential technical and soft skills to prepare you for a career in Devops Engineering in 12 weeks." : ""}</Animated.Text>
@@ -121,7 +121,7 @@ export default function Learning() {
         </Flex>
       </Flex>
       {/* --------------------------------------------------------------- */}
-      <Flex ref={ref4} maxW="1344px" minH="488px" gap="5rem" m={{base: "auto", md: "3.063rem"}} flexDirection="column" mt={{base: "6rem", lg: "8rem", xl: "6rem"}}>
+      <Flex ref={ref4} maxW="1344px" minH="488px" gap="5rem" m={{base: "auto", md: "3.063rem"}} flexDirection="column" mt={{base: "6rem", lg: "8rem", xl: "6rem"}} id="pricing">
         <Animated.Flex style={textStyles} maxW="1260px" minH="132px" gap="1rem" flexDirection="column">
           {inView4 ? (
             <>

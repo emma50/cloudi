@@ -32,7 +32,7 @@ export default function Faq() {
   });
 
   return (
-    <Flex ref={ref} maxW="100%" minH="785px" p="5rem" pt={{base: "5rem", lg: "1rem", xl: "0"}} gap="3.688rem" flexDirection="column">
+    <Flex ref={ref} maxW="100%" minH="785px" p="5rem" pt={{base: "5rem", lg: "1rem", xl: "0"}} gap="3.688rem" flexDirection="column" id="faqs">
       <Animated.Text style={textStyles} textAlign="center" maxW="1284px" minH="60px" fontWeight="600" fontSize="3rem" lineHeight="3.75rem" color={{base: "#000000", _dark: "#FEFEFE"}}>{inView ? "Frequently Asked Questions" : ""}</Animated.Text>
       <Flex flexDirection="column" w="100%" alignItems="center">
         <Animated.Flex flexDirection="column" maxW="963px" minH="506px" gap="2.5rem">

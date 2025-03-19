@@ -26,7 +26,7 @@ export default function Testimonials() {
   });
 
   return (
-    <Box ref={ref} minH="425px" color={{base: "#FFFFFF", _dark: "#000000"}} mt="1rem">
+    <Box ref={ref} minH="425px" color={{base: "#FFFFFF", _dark: "#000000"}} mt="1rem" id="testimonials">
       <Flex minH="475px" gap="1.5rem" flexDirection="column">
         {/* gap="72px" */}
         <Animated.Flex style={textStyles} flexDirection={{base: "column", lg: "row"}} maxW="1280px" minH="100px" gap={{base: "4rem", lg: "24rem", xl: "34.313rem"}} mx={{base: "auto", md: "80px"}}>

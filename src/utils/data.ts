@@ -2,27 +2,27 @@ export const headerList = [
   {
     id: 1,
     title: "Home",
-    link: "/home",
+    href: "#",
   },
   {
     id: 2,
     title: "Courses",
-    link: "/courses",
+    href: "#courses"
   },
   {
     id: 3,
     title: "Testimonials",
-    link: "/testimonials",
+    href: "#testimonials",
   },
   {
     id: 4,
     title: "Pricing",
-    link: "/pricing",
+    href:"#pricing" ,
   },
   {
     id: 5,
     title: "FAQs",
-    link: "/faqs",
+    href: "#faqs",
   },
 ]
 
@@ -30,12 +30,12 @@ export const headerButtons = [
   {
     id: 1,
     title: "Enroll now",
-    link: "/enroll",
+    href: "https://forms.gle/AwKfoHZEZywXubhh7"
   },
   {
     id: 2,
     title: "Chat with us",
-    link: "/chat",
+    href: "tel:+2349039838762"
   },
 ]
 

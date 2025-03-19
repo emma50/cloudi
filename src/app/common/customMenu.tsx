@@ -23,7 +23,7 @@ export const LargeMenuLinks = () => {
       <Flex display={{base: "none", lg: "flex"}} flexDirection={{base: "column", lg: "row"}} alignItems={{base: "initial", lg: "center"}} gap={{base: "0", lg: ".5rem", xl: "3.5rem"}}>
         {headerList.map((item) => {
           return (
-            <MenuItem key={item.id} to="/" size={{base: "1rem", lg: "initial"}}>{item.title}</MenuItem>
+            <MenuItem key={item.id} to={item.href} size={{base: "1rem", lg: "initial"}}>{item.title}</MenuItem>
           )
         })}
       </Flex>
@@ -38,7 +38,7 @@ export const LargeHeaderButtons = () => {
     {/*  */}
       {headerButtons.map((item) => {
         return (
-          <MenuItem key={item.id} to="/" size={{base: "1rem", lg: "initial"}}>
+          <MenuItem key={item.id} to={item.href} size={{base: "1rem", lg: "initial"}}>
             <Button
               key={item.id}
               bg={{base: `${item.title === "Enroll now" ? "#005EDF" : "transparent"}}`, _dark: `${item.title === "Enroll now" ? "#005EDF" : "#000000"}}`}}
@@ -70,7 +70,7 @@ export const MenuLinks = () => {
       <Flex flexDirection="column" alignItems="center" alignContent="center" justifyContent="space-between"> 
         {headerList.map((item) => {
           return (
-            <MenuItem key={item.id} to="/" size={{base: "1rem", lg: "initial"}}>{item.title}</MenuItem>
+            <MenuItem key={item.id} to={item.href} size={{base: "1rem", lg: "initial"}}>{item.title}</MenuItem>
           )
         })}
       </Flex>
@@ -84,23 +84,26 @@ export const HeaderButtons = () => {
     <Flex flexDirection="column" alignItems="center" gap="1rem" h="calc(85vh - (85vh / 1.4))" justifyContent="flex-end">
     {/*  */}
       {headerButtons.map((item) => {
+        // href={item.href}
         return (
-          <Button
-            key={item.id}
-            bg={{base: `${item.title === "Enroll now" ? "#005EDF" : "transparent"}}`, _dark: `${item.title === "Enroll now" ? "#005EDF" : "#000000"}}`}}
-            style={{border: `${item.title === "Enroll now" ? "none" : colorMode !== "dark" ? "1px solid #005EDF" : "1px solid #ffffff" }`}}
-            variant={item.title === "Enroll now" ? "solid" : "outline"}
-            p="32px"
-            gap="12px"
-            display="flex"
-            borderRadius="7px"
-            size="xl"
-            // h="76px"
-            w="10px"
-          >
-            <Text fontWeight="700" fontSize="18px" lineHeight="48px" textAlign="center" style={{color: `${colorMode !== "dark" && item.title === "Enroll now" ? "#ffffff" : colorMode !== "dark" && item.title !== "Enroll now" ? "#005EDF" : "#ffffff" }`}}>{item.title} </Text>
-            {item.title === "Enroll now" && <IoIosArrowRoundForward color="#FFFFFF" size="24px" />}
-          </Button>
+          <Link key={item.id} href={item.href}>
+            <Button
+              // key={item.id}
+              bg={{base: `${item.title === "Enroll now" ? "#005EDF" : "transparent"}}`, _dark: `${item.title === "Enroll now" ? "#005EDF" : "#000000"}}`}}
+              style={{border: `${item.title === "Enroll now" ? "none" : colorMode !== "dark" ? "1px solid #005EDF" : "1px solid #ffffff" }`}}
+              variant={item.title === "Enroll now" ? "solid" : "outline"}
+              p="32px"
+              gap="12px"
+              display="flex"
+              borderRadius="7px"
+              size="xl"
+              // h="76px"
+              w="10px"
+            >
+              <Text fontWeight="700" fontSize="18px" lineHeight="48px" textAlign="center" style={{color: `${colorMode !== "dark" && item.title === "Enroll now" ? "#ffffff" : colorMode !== "dark" && item.title !== "Enroll now" ? "#005EDF" : "#ffffff" }`}}>{item.title} </Text>
+              {item.title === "Enroll now" && <IoIosArrowRoundForward color="#FFFFFF" size="24px" />}
+            </Button>
+          </Link>
         )
       })}
     </Flex>
