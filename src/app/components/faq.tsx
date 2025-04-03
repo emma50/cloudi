@@ -8,7 +8,8 @@ import {
   AccordionRoot, 
   Icon, 
   Stack, 
-  List
+  List,
+  Link,
 } from "@chakra-ui/react"
 import { GoPlus } from "react-icons/go";
 import { useSpring, useTrail } from '@react-spring/web';
@@ -39,7 +40,7 @@ export default function Faq() {
           <CustomAccordion />
           {inView ? (
             <>
-              <Text minW="182px" minH="26px" fontWeight="400" fontSize="1.25rem" lineHeight="1.625rem" color={{base: "#2D2D2D", _dark: "#E8ECEF"}} textAlign="start">Still got questions? Contact us via <Text as="span" color="#005EDF" fontWeight="600">Whatsapp</Text> or <Text as="span" color="#005EDF" fontWeight="600">Email</Text></Text>
+              <Text minW="182px" minH="26px" fontWeight="400" fontSize="1.25rem" lineHeight="1.625rem" color={{base: "#2D2D2D", _dark: "#E8ECEF"}} textAlign="start">Still got questions? Contact us via <Link href="tel:+2349039838762"><Text as="span" color="#005EDF" fontWeight="600">Whatsapp</Text></Link> or <Text as="span" color="#005EDF" fontWeight="600">Email</Text></Text>
             </>
           ) : <></>}
         </Animated.Flex>

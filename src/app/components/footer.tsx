@@ -63,7 +63,7 @@ export default function Footer() {
               <Flex maxW="1216px" minH="23px" gap="1rem">
                 {links.map((item: any) => {
                   return (
-                    <Link key={item.id} href={item.link} minW="46px" minH="23px" fontWeight="500" fontSize="1rem" lineHeight="23.2px" textAlign="center" color={{base: "#232627", _dark: "#F3F5F7"}}>{item.name}</Link>
+                    <Link key={item.id} href={item.href} minW="46px" minH="23px" fontWeight="500" fontSize="1rem" lineHeight="23.2px" textAlign="center" color={{base: "#232627", _dark: "#F3F5F7"}}>{item.name}</Link>
                   )
                 })}
               </Flex>
@@ -101,26 +101,26 @@ const links = [
   {
     id: 1,
     name: "Home",
-    link: "/",
+    href: "#",
   },
   {
     id: 2,
     name: "Courses",
-    link: "/",
+    href: "#courses",
   },
   {
     id: 3,
     name: "Testimonials",
-    link: "/",
+    href: "#testimonials",
   },
   {
     id: 4,
     name: "Pricing",
-    link: "/",
+    href:"#pricing" ,
   },
   {
     id: 5,
     name: "FAQ",
-    link: "/",
+    href: "#faqs",
   },
 ]
