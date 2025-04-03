@@ -36,7 +36,7 @@ export default function Programme() {
               flexDirection="column" 
             >
               <Text maxW="301px" minH="28px" fontWeight="400" fontSize="1.25rem" lineHeight="1.75rem" color={{base: "#061C3D", _dark: "#FEFEFE"}} textAlign={{base: "center", md: "center", lg: `${isStyled ? "center" : "start"}` }} textTransform="uppercase">Start date</Text>
-              <Text maxW="301px" minH="44px" fontWeight="700" fontSize="2rem" lineHeight="44px" color={{base: "#061C3D", _dark: "#FEFEFE"}} textAlign={{base: "center", md: "center" }}>March 3, 2025</Text>
+              <Text maxW="301px" minH="44px" fontWeight="700" fontSize="2rem" lineHeight="44px" color={{base: "#061C3D", _dark: "#FEFEFE"}} textAlign={{base: "center", md: "center" }}>May 3, 2025</Text>
             </Flex>
             <Flex maxW="917px" minH="108px" gap="4rem" flexDirection={{base: "column", md: "row"}} flexWrap="wrap" alignItems={{base: "center", md: "initial"}}>
               <Flex maxW="677px" minH="108px" gap="40px" flexDirection={{base: "column", md: "row"}} alignItems={{base: "center", md: "initial"}}>
