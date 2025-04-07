@@ -6,6 +6,7 @@ import { useSpring } from '@react-spring/web';
 import { Animated } from "@/externals";
 import { useInView } from 'react-intersection-observer';
 import { useMediaQuery } from 'react-responsive'
+import { headerButtons } from "@/utils/data";
 
 export default function Programme() {
   const isStyled = useMediaQuery({ minWidth: 1023, maxWidth: 1168 })
@@ -68,6 +69,11 @@ export default function Programme() {
                   borderRadius="7px"
                   maxH="56px"
                   maxW="176px"
+                  onClick={() => {
+                    const item = headerButtons.filter((item) => item.id === 1);
+                    window.location.href = item[0].href;
+                    return window.location.href;
+                  }}
                 >
                   <Text as="span" color="#FFFFFF" fontWeight="700" fontSize="16px" lineHeight="48px" textAlign="center">Enroll now </Text>
                   <IoIosArrowRoundForward color="#FFFFFF" size="24px" />

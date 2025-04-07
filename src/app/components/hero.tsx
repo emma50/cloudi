@@ -5,6 +5,9 @@ import { useColorMode } from "@/components/ui/color-mode";
 import { useSpring } from '@react-spring/web';
 import { Animated } from "@/externals";
 import { useInView } from 'react-intersection-observer';
+import { headerButtons } from "@/utils/data";
+
+const buttonList = headerButtons;
 
 export default function Hero() {
   return (
@@ -82,6 +85,10 @@ export const Left = () => {
                       borderRadius="7px"
                       h="56px"
                       w="176px"
+                      onClick={() => {
+                        window.location.href = item.href;
+                        return window.location.href;
+                      }}
                     >
                       <Text fontWeight="700" fontSize="16px" lineHeight="48px" textAlign="center" style={{color: `${colorMode !== "dark" && item.title === "Enroll now" ? "#ffffff" : colorMode !== "dark" && item.title !== "Enroll now" ? "#005EDF" : "#ffffff" }`}}>{item.title} </Text>
                       {item.title === "Enroll now" && <IoIosArrowRoundForward color="#FFFFFF" size="24px" />}
@@ -111,8 +118,3 @@ export const Right = () => {
     </Flex>
   )
 }
-
-const buttonList = [
-  { id: 1, title: "Enroll now" },
-  { id: 2, title: "Chat with us" }
-]
