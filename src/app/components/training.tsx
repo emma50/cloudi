@@ -6,7 +6,7 @@ import { LuNotepadText } from "react-icons/lu";
 import { useSpring } from '@react-spring/web';
 import { Animated } from "@/externals";
 import { useInView } from 'react-intersection-observer';
-import { headerButtons } from "@/utils/data";
+import { handleWhatsAppClick } from "@/utils/functions";
 
 export default function Training() {
   // Use the `useInView` hook to detect when the element is visible
@@ -54,11 +54,7 @@ export default function Training() {
                 h="56px"
                 w="176px"
                 variant="solid"
-                onClick={() => {
-                  const item = headerButtons.filter((item) => item.id === 1);
-                  window.location.href = item[0].href;
-                  return window.location.href;
-                }}
+                onClick={handleWhatsAppClick}
               >
                 <Text color="#FFFFFF" fontWeight="700" fontSize="16px" lineHeight="48px" textAlign="center">Enroll now </Text>
                 <IoIosArrowRoundForward color="#FFFFFF" size="24px" />

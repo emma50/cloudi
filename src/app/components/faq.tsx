@@ -16,6 +16,7 @@ import { useSpring, useTrail } from '@react-spring/web';
 import { Animated } from "@/externals";
 import { useInView } from 'react-intersection-observer';
 import { IoCheckbox } from "react-icons/io5";
+import { handleWhatsAppClick } from "@/utils/functions";
 
 export default function Faq() {
   // Use the `useInView` hook to detect when the element is visible
@@ -40,7 +41,8 @@ export default function Faq() {
           <CustomAccordion />
           {inView ? (
             <>
-              <Text minW="182px" minH="26px" fontWeight="400" fontSize="1.25rem" lineHeight="1.625rem" color={{base: "#2D2D2D", _dark: "#E8ECEF"}} textAlign="start">Still got questions? Contact us via <Link href="tel:+2349039838762"><Text as="span" color="#005EDF" fontWeight="600">Whatsapp</Text></Link> or <Text as="span" color="#005EDF" fontWeight="600">Email</Text></Text>
+              <Text minW="182px" minH="26px" fontWeight="400" fontSize="1.25rem" lineHeight="1.625rem" color={{base: "#2D2D2D", _dark: "#E8ECEF"}} textAlign="start">Still got questions? Contact us via <Link href=""><Text as="span" color="#005EDF" fontWeight="600" onClick={handleWhatsAppClick}>Whatsapp</Text></Link> or <Text as="span" color="#005EDF" fontWeight="600">Email</Text></Text>
+              {/* href="tel:+2349039838762" */}
             </>
           ) : <></>}
         </Animated.Flex>

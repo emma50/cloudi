@@ -6,6 +6,7 @@ import { useSpring } from '@react-spring/web';
 import { Animated } from "@/externals";
 import { useInView } from 'react-intersection-observer';
 import { headerButtons } from "@/utils/data";
+import { handleWhatsAppClick } from "@/utils/functions";
 
 const buttonList = headerButtons;
 
@@ -85,10 +86,7 @@ export const Left = () => {
                       borderRadius="7px"
                       h="56px"
                       w="176px"
-                      onClick={() => {
-                        window.location.href = item.href;
-                        return window.location.href;
-                      }}
+                      onClick={handleWhatsAppClick}
                     >
                       <Text fontWeight="700" fontSize="16px" lineHeight="48px" textAlign="center" style={{color: `${colorMode !== "dark" && item.title === "Enroll now" ? "#ffffff" : colorMode !== "dark" && item.title !== "Enroll now" ? "#005EDF" : "#ffffff" }`}}>{item.title} </Text>
                       {item.title === "Enroll now" && <IoIosArrowRoundForward color="#FFFFFF" size="24px" />}

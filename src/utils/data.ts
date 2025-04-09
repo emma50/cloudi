@@ -1,3 +1,5 @@
+import { handleWhatsAppClick } from "./functions";
+
 export const headerList = [
   {
     id: 1,
@@ -35,6 +37,7 @@ export const headerButtons = [
   {
     id: 2,
     title: "Chat with us",
-    href: "tel:+2349039838762"
+    // href: "tel:+2349039838762"
+    href: handleWhatsAppClick,
   },
 ]
