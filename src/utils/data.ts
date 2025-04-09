@@ -41,3 +41,5 @@ export const headerButtons = [
     href: handleWhatsAppClick,
   },
 ]
+
+export const emailAddress = "malito:Samuelamujo@gmail.com"
