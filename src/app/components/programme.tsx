@@ -6,7 +6,7 @@ import { useSpring } from '@react-spring/web';
 import { Animated } from "@/externals";
 import { useInView } from 'react-intersection-observer';
 import { useMediaQuery } from 'react-responsive'
-import { handleWhatsAppClick } from "@/utils/functions";
+import { headerButtons } from "@/utils/data";
 
 export default function Programme() {
   const isStyled = useMediaQuery({ minWidth: 1023, maxWidth: 1168 })
@@ -69,7 +69,10 @@ export default function Programme() {
                   borderRadius="7px"
                   maxH="56px"
                   maxW="176px"
-                  onClick={handleWhatsAppClick}
+                  onClick={() => {
+                    const href = (headerButtons.filter((item) => item.id === 1)[0].href) as string;
+                    window.open(href, "_blank")
+                  }}
                 >
                   <Text as="span" color="#FFFFFF" fontWeight="700" fontSize="16px" lineHeight="48px" textAlign="center">Enroll now </Text>
                   <IoIosArrowRoundForward color="#FFFFFF" size="24px" />

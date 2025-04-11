@@ -51,7 +51,14 @@ export const LargeHeaderButtons = () => {
               borderRadius="7px"
               h="56px"
               w="176px"
-              onClick={handleWhatsAppClick}
+              onClick={() => {
+                if (item.title === "Enroll now" || item.id === 1) {
+                  window.open((item.href) as string, "_blank")
+                }
+                if (item.title === "Chat with us" || item.id === 2) {
+                  handleWhatsAppClick()
+                }
+              }}
             >
               <Text fontWeight="700" fontSize="16px" lineHeight="48px" textAlign="center" style={{color: `${colorMode !== "dark" && item.title === "Enroll now" ? "#ffffff" : colorMode !== "dark" && item.title !== "Enroll now" ? "#005EDF" : "#ffffff" }`}}>{item.title} </Text>
               {item.title === "Enroll now" && <IoIosArrowRoundForward color="#FFFFFF" size="24px" />}
@@ -101,7 +108,15 @@ export const HeaderButtons = () => {
               size="xl"
               // h="76px"
               w="10px"
-              onClick={handleWhatsAppClick}
+              // onClick={handleWhatsAppClick}
+              onClick={() => {
+                if (item.title === "Enroll now" || item.id === 1) {
+                  window.open((item.href) as string, "_blank")
+                }
+                if (item.title === "Chat with us" || item.id === 2) {
+                  handleWhatsAppClick()
+                }
+              }}
             >
               <Text fontWeight="700" fontSize="18px" lineHeight="48px" textAlign="center" style={{color: `${colorMode !== "dark" && item.title === "Enroll now" ? "#ffffff" : colorMode !== "dark" && item.title !== "Enroll now" ? "#005EDF" : "#ffffff" }`}}>{item.title} </Text>
               {item.title === "Enroll now" && <IoIosArrowRoundForward color="#FFFFFF" size="24px" />}
